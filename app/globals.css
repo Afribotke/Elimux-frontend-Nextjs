@@ -4,24 +4,24 @@
 
 /* Global resets */
 html, body {
-    height: 100 %;
+    height: 100%;
     margin: 0;
     padding: 0;
 }
 
 /* Smooth font rendering */
 body {
-    -webkit - font - smoothing: antialiased;
-    -moz - osx - font - smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 /* Default background */
 body {
-    background - color: #f9fafb;
+    background-color: #f9fafb;
 }
 
 /* Prevent layout shift on scrollbars */
 html {
-    scrollbar - gutter: stable;
+    scrollbar-gutter: stable;
 }
 
