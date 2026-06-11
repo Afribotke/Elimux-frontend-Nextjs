@@ -1,14 +1,18 @@
-import './globals.css';
+import "./globals.css";
+import NavBar from "../components/NavBar";
 
 export const metadata = {
-  title: 'Elimux',
-  description: 'Elimux Platform',
+  title: "Elimux",
+  description: "Education platform",
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <NavBar />
+        {children}
+      </body>
     </html>
   );
 }
