@@ -1,16 +1,16 @@
+=== app/layout.tsx ===
 import "./globals.css";
-import NavBar from "../components/NavBar";
+import type { ReactNode } from "react";
 
 export const metadata = {
-  title: "Elimux",
-  description: "Education platform",
+  title: "ElimuX",
+  description: "AI-powered institution and course management platform",
 };
 
-export default function RootLayout({ children }) {
+export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
-      <body>
-        <NavBar />
+      <body className="min-h-screen bg-slate-50 text-slate-900">
         {children}
       </body>
     </html>
