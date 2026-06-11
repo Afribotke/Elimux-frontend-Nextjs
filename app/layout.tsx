@@ -1,18 +1,14 @@
-=== app/layout.tsx ===
 import "./globals.css";
-import type { ReactNode } from "react";
 
 export const metadata = {
   title: "ElimuX",
-  description: "AI-powered institution and course management platform",
+  description: "AI‑powered course discovery for Africa",
 };
 
-export default function RootLayout({ children }: { children: ReactNode }) {
+export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className="min-h-screen bg-slate-50 text-slate-900">
-        {children}
-      </body>
+      <body>{children}</body>
     </html>
   );
 }
