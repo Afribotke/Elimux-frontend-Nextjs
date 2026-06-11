@@ -1,3 +1,4 @@
+export const dynamic = "force-dynamic";
 import DashboardCard from '@/components/DashboardCard';
 import { fetchInstitution, fetchAnalytics, fetchPrograms } from '@/lib/api';
 
