@@ -1,4 +1,3 @@
-=== app/institution/page.tsx ===
 export default function InstitutionDashboard() {
   return (
     <div className="space-y-4">
