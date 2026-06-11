@@ -1,45 +1,36 @@
-import { fetchPrograms } from '@/lib/api';
+import { fetchPrograms } from "@/lib/api";
 
-export default async function ProgramsPage({
-  params,
-}: {
-  params: { id: string };
-}) {
+export async function ProgramsPage({ params }: { params: { id: string } }) {
   const programs = await fetchPrograms(params.id);
 
   return (
     <div className="space-y-6">
-      <div className="flex items-center justify-between">
-        <h2 className="text-2xl font-bold text-navy">Programs</h2>
-        <span className="rounded-full bg-navy/5 px-3 py-1 text-sm text-navy">
-          {programs.length} listed
-        </span>
-      </div>
+      <h1 className="text-2xl font-bold">Programs</h1>
 
-      <div className="overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm">
-        <table className="w-full text-left text-sm">
-          <thead className="bg-gray-50 text-gray-500">
-            <tr>
-              <th className="px-6 py-3 font-medium">Program</th>
-              <th className="px-6 py-3 font-medium">Level</th>
-              <th className="px-6 py-3 font-medium">Duration</th>
-              <th className="px-6 py-3 font-medium">Mode</th>
-              <th className="px-6 py-3 font-medium">Fees</th>
+      <table className="min-w-full border border-gray-300">
+        <thead>
+          <tr className="bg-gray-100">
+            <th className="border px-4 py-2 text-left">Program Name</th>
+            <th className="border px-4 py-2 text-left">Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          {programs?.map((program: any) => (
+            <tr key={program.id}>
+              <td className="border px-4 py-2">{program.name}</td>
+              <td className="border px-4 py-2">{program.description}</td>
             </tr>
-          </thead>
-          <tbody className="divide-y divide-gray-100">
-            {programs.map((p) => (
-              <tr key={p.id} className="hover:bg-gray-50">
-                <td className="px-6 py-4 font-medium text-ink">{p.name}</td>
-                <td className="px-6 py-4 text-gray-600">{p.level}</td>
-                <td className="px-6 py-4 text-gray-600">{p.duration}</td>
-                <td className="px-6 py-4 text-gray-600">{p.mode}</td>
-                <td className="px-6 py-4 font-medium text-gold">{p.fees}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+          ))}
+        </tbody>
+      </table>
     </div>
+  );
+}
+
+export default function Home() {
+  return (
+    <main className="flex items-center justify-center h-screen">
+      <h1 className="text-3xl font-bold">Welcome to Elimux</h1>
+    </main>
   );
 }
