@@ -1,21 +1,10 @@
-import { NextResponse } from "next/server";
-import type { NextRequest } from "next/server";
+﻿import { NextResponse } from 'next/server';
+import { authCheck } from '@/lib/middleware/auth-check';
 
-export function middleware(req: NextRequest) {
-  const url = req.nextUrl.clone();
-  const isProtected = url.pathname.startsWith("/institution");
-
-  if (!isProtected) return NextResponse.next();
-
-  const hasSession = req.cookies.get("sb-access-token");
-  if (!hasSession) {
-    url.pathname = "/login";
-    return NextResponse.redirect(url);
-  }
-
-  return NextResponse.next();
+export function middleware(req: Request) {
+  return authCheck(req);
 }
 
 export const config = {
-  matcher: ["/institution/:path*"],
+  matcher: ['/dashboard/:path*'],
 };

@@ -1,20 +1,20 @@
 ﻿import "./globals.css";
-import type { Metadata } from "next";
+import { ThemeProvider } from "@/providers/ThemeProvider";
+import { SessionProvider } from "@/providers/SessionProvider";
+import { ApiProvider } from "@/providers/ApiProvider";
 
-export const metadata: Metadata = {
-  title: "ElimuX",
-  description: "Unified education management platform",
-  manifest: "/manifest.json",
-};
-
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <ApiProvider>
+          <SessionProvider>
+            <ThemeProvider>
+              {children}
+            </ThemeProvider>
+          </SessionProvider>
+        </ApiProvider>
+      </body>
     </html>
   );
 }
