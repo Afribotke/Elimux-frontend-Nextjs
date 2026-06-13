@@ -1,27 +1,10 @@
-@tailwind base;
+﻿@tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Global resets */
-html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-}
-
-/* Smooth font rendering */
 body {
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+  background: #f8f9fa;
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
 }
-
-/* Default background */
-body {
-    background-color: #f9fafb;
-}
-
-/* Prevent layout shift on scrollbars */
-html {
-    scrollbar-gutter: stable;
-}
-
