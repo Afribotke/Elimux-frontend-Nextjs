@@ -1,0 +1,14 @@
+Elimux-frontend-Nextjs-CLEAN/
+│
+├── scripts/
+│   ├── build-elimux.ps1
+│   ├── build-part2.ps1
+│
+├── app/
+├── components/
+├── lib/
+├── package.json
+├── tsconfig.json
+├── next.config.js
+├── tailwind.config.ts
+└── README.md
