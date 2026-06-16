@@ -13,7 +13,7 @@ export default function DashboardPage() {
       const {
         data: { user },
       } = await supabase.auth.getUser();
-      if (user) setUserEmail(user.email);
+      if (user) setUserEmail(user.email ?? null);
     }
     loadUser();
   }, [supabase]);
