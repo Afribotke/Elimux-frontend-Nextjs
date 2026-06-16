@@ -6,11 +6,12 @@
     "dev": "next dev",
     "build": "next build",
     "lint": "next lint",
-    "audit": "npm run lint && npx tsc --noEmit && npm run build"
+    "audit": "node scripts/schema-check.js && node scripts/import-check.js && node scripts/route-check.js && node scripts/env-check.js && npm run lint && npx tsc --noEmit && npm run build"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.39.0",
     "next": "14.1.0",
+    "node-fetch": "^3.3.2",
     "react": "18.2.0",
     "react-dom": "18.2.0"
   },
