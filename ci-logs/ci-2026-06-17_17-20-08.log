@@ -1,0 +1,73 @@
+﻿**********************
+Windows PowerShell transcript start
+Start time: 20260617172008
+Username: ELON\ELON
+RunAs User: ELON\ELON
+Configuration Name: 
+Machine: ELON (Microsoft Windows NT 10.0.26200.0)
+Host Application: PowerShell.exe -noexit -WorkingDirectory C:\Users\ELON\Projects-2026\IDEA STORE\Elimux-frontend-Nextjs-CLEAN
+Process ID: 13580
+PSVersion: 5.1.26100.8655
+PSEdition: Desktop
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.26100.8655
+BuildVersion: 10.0.26100.8655
+CLRVersion: 4.0.30319.42000
+WSManStackVersion: 3.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+**********************
+✔ NEXT_PUBLIC_SUPABASE_URL OK
+✔ NEXT_PUBLIC_SUPABASE_ANON_KEY OK
+✔ SUPABASE_URL OK
+✔ SUPABASE_ANON_KEY OK
+✔ .env.example refreshed
+vercel : The term 'vercel' is not recognized as the name of a cmdlet, function, script file, or operable program. Check 
+the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At C:\Users\ELON\Projects-2026\IDEA STORE\Elimux-frontend-Nextjs-CLEAN\ci-master.ps1:44 char:15
++ $publicUrl  | vercel env add NEXT_PUBLIC_SUPABASE_URL
++               ~~~~~~
+    + CategoryInfo          : ObjectNotFound: (vercel:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+vercel : The term 'vercel' is not recognized as the name of a cmdlet, function, script file, or operable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At C:\Users\ELON\Projects-2026\IDEA STORE\Elimux-frontend-Nextjs-CLEAN\ci-master.ps1:44 char:15
++ $publicUrl  | vercel env add NEXT_PUBLIC_SUPABASE_URL
++               ~~~~~~
+    + CategoryInfo          : ObjectNotFound: (vercel:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+vercel : The term 'vercel' is not recognized as the name of a cmdlet, function, script file, or operable program. Check 
+the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At C:\Users\ELON\Projects-2026\IDEA STORE\Elimux-frontend-Nextjs-CLEAN\ci-master.ps1:45 char:15
++ $publicAnon | vercel env add NEXT_PUBLIC_SUPABASE_ANON_KEY
++               ~~~~~~
+    + CategoryInfo          : ObjectNotFound: (vercel:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+vercel : The term 'vercel' is not recognized as the name of a cmdlet, function, script file, or operable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At C:\Users\ELON\Projects-2026\IDEA STORE\Elimux-frontend-Nextjs-CLEAN\ci-master.ps1:45 char:15
++ $publicAnon | vercel env add NEXT_PUBLIC_SUPABASE_ANON_KEY
++               ~~~~~~
+    + CategoryInfo          : ObjectNotFound: (vercel:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+✔ Vercel env updated
+✔ Supabase types updated
+❌ TypeScript errors detected
+lib/supabase-types.ts(1,1): error TS1434: Unexpected keyword or identifier. lib/supabase-types.ts(1,6): error TS1434: Unexpected keyword or identifier. lib/supabase-types.ts(1,9): error TS1434: Unexpected keyword or identifier. lib/supabase-types.ts(1,17): error TS1434: Unexpected keyword or identifier. lib/supabase-types.ts(1,21): error TS1434: Unexpected keyword or identifier. lib/supabase-types.ts(2,1): error TS1434: Unexpected keyword or identifier. lib/supabase-types.ts(2,15): error TS1146: Declaration expected. lib/supabase-types.ts(3,1): error TS1434: Unexpected keyword or identifier. lib/supabase-types.ts(3,4): error TS1434: Unexpected keyword or identifier. lib/supabase-types.ts(4,1): error TS1005: ':' expected.
+PS C:\Users\ELON\Projects-2026\IDEA STORE\Elimux-frontend-Nextjs-CLEAN> vercel login
+vercel : The term 'vercel' is not recognized as the name of a cmdlet, function, script file, or operable program. Check 
+the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:1
++ vercel login
++ ~~~~~~
+    + CategoryInfo          : ObjectNotFound: (vercel:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+vercel : The term 'vercel' is not recognized as the name of a cmdlet, function, script file, or operable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:1
++ vercel login
++ ~~~~~~
+    + CategoryInfo          : ObjectNotFound: (vercel:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+

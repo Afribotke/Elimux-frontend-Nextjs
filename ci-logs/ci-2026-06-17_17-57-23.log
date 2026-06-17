@@ -1,0 +1,26 @@
+﻿**********************
+Windows PowerShell transcript start
+Start time: 20260617175723
+Username: ELON\ELON
+RunAs User: ELON\ELON
+Configuration Name: 
+Machine: ELON (Microsoft Windows NT 10.0.26200.0)
+Host Application: PowerShell.exe -noexit -WorkingDirectory C:\Users\ELON\Projects-2026\IDEA STORE\Elimux-frontend-Nextjs-CLEAN
+Process ID: 7836
+PSVersion: 5.1.26100.8655
+PSEdition: Desktop
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.26100.8655
+BuildVersion: 10.0.26100.8655
+CLRVersion: 4.0.30319.42000
+WSManStackVersion: 3.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+**********************
+✔ NEXT_PUBLIC_SUPABASE_URL OK
+✔ NEXT_PUBLIC_SUPABASE_ANON_KEY OK
+✔ SUPABASE_URL OK
+✔ SUPABASE_ANON_KEY OK
+✔ .env.example refreshed
+
+
+✔ Vercel env updated

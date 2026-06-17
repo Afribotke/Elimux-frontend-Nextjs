@@ -1,0 +1,95 @@
+﻿**********************
+Windows PowerShell transcript start
+Start time: 20260617180741
+Username: ELON\ELON
+RunAs User: ELON\ELON
+Configuration Name: 
+Machine: ELON (Microsoft Windows NT 10.0.26200.0)
+Host Application: PowerShell.exe -noexit -WorkingDirectory C:\Users\ELON\Projects-2026\IDEA STORE\Elimux-frontend-Nextjs-CLEAN
+Process ID: 13052
+PSVersion: 5.1.26100.8655
+PSEdition: Desktop
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.26100.8655
+BuildVersion: 10.0.26100.8655
+CLRVersion: 4.0.30319.42000
+WSManStackVersion: 3.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+**********************
+✔ NEXT_PUBLIC_SUPABASE_URL OK
+✔ NEXT_PUBLIC_SUPABASE_ANON_KEY OK
+✔ SUPABASE_URL OK
+✔ SUPABASE_ANON_KEY OK
+✔ .env.example refreshed
+
+
+✔ Vercel env updated
+✔ Supabase types updated
+❌ TypeScript errors detected
+lib/supabase-types.ts(1,1): error TS1434: Unexpected keyword or identifier. lib/supabase-types.ts(1,6): error TS1434: Unexpected keyword or identifier. lib/supabase-types.ts(1,9): error TS1434: Unexpected keyword or identifier. lib/supabase-types.ts(1,17): error TS1434: Unexpected keyword or identifier. lib/supabase-types.ts(1,21): error TS1434: Unexpected keyword or identifier. lib/supabase-types.ts(2,1): error TS1434: Unexpected keyword or identifier. lib/supabase-types.ts(2,15): error TS1146: Declaration expected. lib/supabase-types.ts(3,1): error TS1434: Unexpected keyword or identifier. lib/supabase-types.ts(3,4): error TS1434: Unexpected keyword or identifier. lib/supabase-types.ts(4,1): error TS1005: ':' expected.
+PS C:\Users\ELON\Projects-2026\IDEA STORE\Elimux-frontend-Nextjs-CLEAN> Write-Host "✔ Syncing keys to Vercel..."
+✔ Syncing keys to Vercel...
+PS C:\Users\ELON\Projects-2026\IDEA STORE\Elimux-frontend-Nextjs-CLEAN> $publicUrl  = ($env | Where-Object { $_ -match '^NEXT_PUBLIC_SUPABASE_URL=' }) -replace '^NEXT_PUBLIC_SUPABASE_URL=', ''
+PS C:\Users\ELON\Projects-2026\IDEA STORE\Elimux-frontend-Nextjs-CLEAN> $publicAnon = ($env | Where-Object { $_ -match '^NEXT_PUBLIC_SUPABASE_ANON_KEY=' }) -replace '^NEXT_PUBLIC_SUPABASE_ANON_KEY=', ''
+PS C:\Users\ELON\Projects-2026\IDEA STORE\Elimux-frontend-Nextjs-CLEAN> # Production
+PS C:\Users\ELON\Projects-2026\IDEA STORE\Elimux-frontend-Nextjs-CLEAN> $publicUrl  | vercel env add NEXT_PUBLIC_SUPABASE_URL production
+
+PS C:\Users\ELON\Projects-2026\IDEA STORE\Elimux-frontend-Nextjs-CLEAN> $publicAnon | vercel env add NEXT_PUBLIC_SUPABASE_ANON_KEY production
+
+PS C:\Users\ELON\Projects-2026\IDEA STORE\Elimux-frontend-Nextjs-CLEAN> # Preview
+PS C:\Users\ELON\Projects-2026\IDEA STORE\Elimux-frontend-Nextjs-CLEAN> $publicUrl  | vercel env add NEXT_PUBLIC_SUPABASE_URL preview
+
+PS C:\Users\ELON\Projects-2026\IDEA STORE\Elimux-frontend-Nextjs-CLEAN> $publicAnon | vercel env add NEXT_PUBLIC_SUPABASE_ANON_KEY preview
+
+PS C:\Users\ELON\Projects-2026\IDEA STORE\Elimux-frontend-Nextjs-CLEAN> # Development
+PS C:\Users\ELON\Projects-2026\IDEA STORE\Elimux-frontend-Nextjs-CLEAN> $publicUrl  | vercel env add NEXT_PUBLIC_SUPABASE_URL development
+
+PS C:\Users\ELON\Projects-2026\IDEA STORE\Elimux-frontend-Nextjs-CLEAN> $publicAnon | vercel env add NEXT_PUBLIC_SUPABASE_ANON_KEY development
+
+PS C:\Users\ELON\Projects-2026\IDEA STORE\Elimux-frontend-Nextjs-CLEAN> Write-Host "✔ Vercel env updated"
+✔ Vercel env updated
+PS C:\Users\ELON\Projects-2026\IDEA STORE\Elimux-frontend-Nextjs-CLEAN> ./ci-master.ps1
+=== CI MASTER START ===
+✔ NEXT_PUBLIC_SUPABASE_URL OK
+✔ NEXT_PUBLIC_SUPABASE_ANON_KEY OK
+✔ SUPABASE_URL OK
+✔ SUPABASE_ANON_KEY OK
+✔ .env.example refreshed
+
+
+✔ Vercel env updated
+✔ Supabase types updated
+❌ TypeScript errors detected
+lib/supabase-types.ts(1,1): error TS1434: Unexpected keyword or identifier. lib/supabase-types.ts(1,6): error TS1434: Unexpected keyword or identifier. lib/supabase-types.ts(1,9): error TS1434: Unexpected keyword or identifier. lib/supabase-types.ts(1,17): error TS1434: Unexpected keyword or identifier. lib/supabase-types.ts(1,21): error TS1434: Unexpected keyword or identifier. lib/supabase-types.ts(2,1): error TS1434: Unexpected keyword or identifier. lib/supabase-types.ts(2,15): error TS1146: Declaration expected. lib/supabase-types.ts(3,1): error TS1434: Unexpected keyword or identifier. lib/supabase-types.ts(3,4): error TS1434: Unexpected keyword or identifier. lib/supabase-types.ts(4,1): error TS1005: ':' expected.
+PS C:\Users\ELON\Projects-2026\IDEA STORE\Elimux-frontend-Nextjs-CLEAN> # Sync Vercel env
+PS C:\Users\ELON\Projects-2026\IDEA STORE\Elimux-frontend-Nextjs-CLEAN> Write-Host "✔ Syncing keys to Vercel..."
+✔ Syncing keys to Vercel...
+PS C:\Users\ELON\Projects-2026\IDEA STORE\Elimux-frontend-Nextjs-CLEAN> $publicUrl  = ($env | Where-Object { $_ -match '^NEXT_PUBLIC_SUPABASE_URL=' }) -replace '^NEXT_PUBLIC_SUPABASE_URL=', ''
+PS C:\Users\ELON\Projects-2026\IDEA STORE\Elimux-frontend-Nextjs-CLEAN> $publicAnon = ($env | Where-Object { $_ -match '^NEXT_PUBLIC_SUPABASE_ANON_KEY=' }) -replace '^NEXT_PUBLIC_SUPABASE_ANON_KEY=', ''
+PS C:\Users\ELON\Projects-2026\IDEA STORE\Elimux-frontend-Nextjs-CLEAN> # Production
+PS C:\Users\ELON\Projects-2026\IDEA STORE\Elimux-frontend-Nextjs-CLEAN> $publicUrl  | vercel env add NEXT_PUBLIC_SUPABASE_URL production
+
+PS C:\Users\ELON\Projects-2026\IDEA STORE\Elimux-frontend-Nextjs-CLEAN> $publicAnon | vercel env add NEXT_PUBLIC_SUPABASE_ANON_KEY production
+
+PS C:\Users\ELON\Projects-2026\IDEA STORE\Elimux-frontend-Nextjs-CLEAN> # Preview
+PS C:\Users\ELON\Projects-2026\IDEA STORE\Elimux-frontend-Nextjs-CLEAN> $publicUrl  | vercel env add NEXT_PUBLIC_SUPABASE_URL preview
+
+PS C:\Users\ELON\Projects-2026\IDEA STORE\Elimux-frontend-Nextjs-CLEAN> $publicAnon | vercel env add NEXT_PUBLIC_SUPABASE_ANON_KEY preview
+
+PS C:\Users\ELON\Projects-2026\IDEA STORE\Elimux-frontend-Nextjs-CLEAN> # Development
+PS C:\Users\ELON\Projects-2026\IDEA STORE\Elimux-frontend-Nextjs-CLEAN> $publicUrl  | vercel env add NEXT_PUBLIC_SUPABASE_URL development
+
+PS C:\Users\ELON\Projects-2026\IDEA STORE\Elimux-frontend-Nextjs-CLEAN> $publicAnon | vercel env add NEXT_PUBLIC_SUPABASE_ANON_KEY development
+
+PS C:\Users\ELON\Projects-2026\IDEA STORE\Elimux-frontend-Nextjs-CLEAN> Write-Host "✔ Vercel env updated"
+✔ Vercel env updated
+PS C:\Users\ELON\Projects-2026\IDEA STORE\Elimux-frontend-Nextjs-CLEAN> ./ci-master.ps1
+=== CI MASTER START ===
+✔ NEXT_PUBLIC_SUPABASE_URL OK
+✔ NEXT_PUBLIC_SUPABASE_ANON_KEY OK
+✔ SUPABASE_URL OK
+✔ SUPABASE_ANON_KEY OK
+✔ .env.example refreshed
+
+
+✔ Vercel env updated

@@ -1,0 +1,62 @@
+﻿**********************
+Windows PowerShell transcript start
+Start time: 20260617183815
+Username: ELON\ELON
+RunAs User: ELON\ELON
+Configuration Name: 
+Machine: ELON (Microsoft Windows NT 10.0.26200.0)
+Host Application: PowerShell.exe -noexit -WorkingDirectory C:\Users\ELON\Projects-2026\IDEA STORE\Elimux-frontend-Nextjs-CLEAN
+Process ID: 13424
+PSVersion: 5.1.26100.8655
+PSEdition: Desktop
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.26100.8655
+BuildVersion: 10.0.26100.8655
+CLRVersion: 4.0.30319.42000
+WSManStackVersion: 3.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+**********************
+✔ NEXT_PUBLIC_SUPABASE_URL OK
+✔ NEXT_PUBLIC_SUPABASE_ANON_KEY OK
+✔ SUPABASE_URL OK
+✔ SUPABASE_ANON_KEY OK
+✔ .env.example refreshed
+✔ Syncing keys to Vercel...
+
+
+
+
+
+
+✔ Vercel env updated
+✔ Supabase types updated
+✔ TypeScript clean
+Error: A variable with the name `NEXT_PUBLIC_SUPABASE_ANON_KEY` already exists for the target production on branch undef
+ined
+Vercel CLI 54.14.0 (Node.js 26.3.0)
+WARNING! NEXT_PUBLIC_ variables can be seen by anyone visiting your site
+> Removed trailing newline from stdin input
+? Add NEXT_PUBLIC_SUPABASE_URL to which Git branch? (leave empty for all Preview branches)?
+Vercel CLI 54.14.0 (Node.js 26.3.0)
+WARNING! The NEXT_PUBLIC_ prefix will make SUPABASE_ANON_KEY visible to anyone visiting your site
+> Removed trailing newline from stdin input
+? Add NEXT_PUBLIC_SUPABASE_ANON_KEY to which Git branch? (leave empty for all Preview branches)?
+Vercel CLI 54.14.0 (Node.js 26.3.0)
+WARNING! NEXT_PUBLIC_ variables can be seen by anyone visiting your site
+> Removed trailing newline from stdin input
+Error: A variable with the name `NEXT_PUBLIC_SUPABASE_URL` already exists for the target development on branch undefined
+Vercel CLI 54.14.0 (Node.js 26.3.0)
+WARNING! The NEXT_PUBLIC_ prefix will make SUPABASE_ANON_KEY visible to anyone visiting your site
+> Removed trailing newline from stdin input
+Error: A variable with the name `NEXT_PUBLIC_SUPABASE_ANON_KEY` already exists for the target development on branch unde
+fined
+✔ Vercel env updated
+✔ Supabase types updated
+✔ TypeScript clean
+
+> elimux-frontend@1.0.0 lint
+> next lint
+
+? How would you like to configure ESLint? https://nextjs.org/docs/basic-features/eslint
+ ▲ ESLint has successfully been configured. Run next lint again to view warnings and errors.
+✔ Lint clean

@@ -1,0 +1,243 @@
+﻿**********************
+Windows PowerShell transcript start
+Start time: 20260617182108
+Username: ELON\ELON
+RunAs User: ELON\ELON
+Configuration Name: 
+Machine: ELON (Microsoft Windows NT 10.0.26200.0)
+Host Application: PowerShell.exe -noexit -WorkingDirectory C:\Users\ELON\Projects-2026\IDEA STORE\Elimux-frontend-Nextjs-CLEAN
+Process ID: 13424
+PSVersion: 5.1.26100.8655
+PSEdition: Desktop
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.26100.8655
+BuildVersion: 10.0.26100.8655
+CLRVersion: 4.0.30319.42000
+WSManStackVersion: 3.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+**********************
+❌ Missing: NEXT_PUBLIC_SUPABASE_URL
+PS C:\Users\ELON\Projects-2026\IDEA STORE\Elimux-frontend-Nextjs-CLEAN> notepad .env.local
+PS C:\Users\ELON\Projects-2026\IDEA STORE\Elimux-frontend-Nextjs-CLEAN> ./ci-master.ps1
+=== CI MASTER START ===
+✔ NEXT_PUBLIC_SUPABASE_URL OK
+✔ NEXT_PUBLIC_SUPABASE_ANON_KEY OK
+✔ SUPABASE_URL OK
+✔ SUPABASE_ANON_KEY OK
+✔ .env.example refreshed
+✔ Syncing keys to Vercel...
+
+
+
+
+
+
+✔ Vercel env updated
+✔ Supabase types updated
+❌ TypeScript errors detected
+lib/supabase-types.ts(1,1): error TS1434: Unexpected keyword or identifier. lib/supabase-types.ts(1,6): error TS1434: Unexpected keyword or identifier. lib/supabase-types.ts(1,9): error TS1434: Unexpected keyword or identifier. lib/supabase-types.ts(1,17): error TS1434: Unexpected keyword or identifier. lib/supabase-types.ts(1,21): error TS1434: Unexpected keyword or identifier. lib/supabase-types.ts(2,1): error TS1434: Unexpected keyword or identifier. lib/supabase-types.ts(2,15): error TS1146: Declaration expected. lib/supabase-types.ts(3,1): error TS1434: Unexpected keyword or identifier. lib/supabase-types.ts(3,4): error TS1434: Unexpected keyword or identifier. lib/supabase-types.ts(4,1): error TS1005: ':' expected.
+PS C:\Users\ELON\Projects-2026\IDEA STORE\Elimux-frontend-Nextjs-CLEAN> notepad lib/supabase-types.ts
+PS C:\Users\ELON\Projects-2026\IDEA STORE\Elimux-frontend-Nextjs-CLEAN> npx supabase login
+
+PS C:\Users\ELON\Projects-2026\IDEA STORE\Elimux-frontend-Nextjs-CLEAN> npx supabase gen types typescript --project-id ohlgjvenwekpbpkykutz > lib/supabase-types.ts
+PS C:\Users\ELON\Projects-2026\IDEA STORE\Elimux-frontend-Nextjs-CLEAN> ParameterBinding(Out-File): name="InputObject"; value="export type Json ="
+>> ParameterBinding(Out-File): name="InputObject"; value="  | string"
+>> ParameterBinding(Out-File): name="InputObject"; value="  | number"
+>> ParameterBinding(Out-File): name="InputObject"; value="  | boolean"
+>> ParameterBinding(Out-File): name="InputObject"; value="  | null"
+>> ParameterBinding(Out-File): name="InputObject"; value="  | { [key: string]: Json | undefined }"
+>> ParameterBinding(Out-File): name="InputObject"; value="  | Json[]"
+>> ParameterBinding(Out-File): name="InputObject"; value=""
+>> ParameterBinding(Out-File): name="InputObject"; value="export type Database = {"
+>> ParameterBinding(Out-File): name="InputObject"; value="  // Allows to automatically instantiate createClient with right options"
+>> ParameterBinding(Out-File): name="InputObject"; value="  // instead of createClient<Database, { PostgrestVersion: 'XX' }>(URL, KEY)"
+>> ParameterBinding(Out-File): name="InputObject"; value="  __InternalSupabase: {"
+>> ParameterBinding(Out-File): name="InputObject"; value="    PostgrestVersion: "14.5""
+>> ParameterBinding(Out-File): name="InputObject"; value="  }"
+>> ParameterBinding(Out-File): name="InputObject"; value="  public: {"
+>> ParameterBinding(Out-File): name="InputObject"; value="    Tables: {"
+>> ParameterBinding(Out-File): name="InputObject"; value="      [_ in never]: never"
+>> ParameterBinding(Out-File): name="InputObject"; value="    }"
+>> ParameterBinding(Out-File): name="InputObject"; value="    Views: {"
+>> ParameterBinding(Out-File): name="InputObject"; value="      [_ in never]: never"
+>> ParameterBinding(Out-File): name="InputObject"; value="    }"
+>> ParameterBinding(Out-File): name="InputObject"; value="    Functions: {"
+>> ParameterBinding(Out-File): name="InputObject"; value="      [_ in never]: never"
+>> ParameterBinding(Out-File): name="InputObject"; value="    }"
+>> ParameterBinding(Out-File): name="InputObject"; value="    Enums: {"
+>> ParameterBinding(Out-File): name="InputObject"; value="      [_ in never]: never"
+>> ParameterBinding(Out-File): name="InputObject"; value="    }"
+>> ParameterBinding(Out-File): name="InputObject"; value="    CompositeTypes: {"
+>> ParameterBinding(Out-File): name="InputObject"; value="      [_ in never]: never"
+>> ParameterBinding(Out-File): name="InputObject"; value="    }"
+>> ParameterBinding(Out-File): name="InputObject"; value="  }"
+>> ParameterBinding(Out-File): name="InputObject"; value="}"
+>> ParameterBinding(Out-File): name="InputObject"; value=""
+>> ParameterBinding(Out-File): name="InputObject"; value="type DatabaseWithoutInternals = Omit<Database, "__InternalSupabase">"
+>> ParameterBinding(Out-File): name="InputObject"; value=""
+>> ParameterBinding(Out-File): name="InputObject"; value="type DefaultSchema = DatabaseWithoutInternals[Extract<keyof Database, "public">]"
+>> ParameterBinding(Out-File): name="InputObject"; value=""
+>> ParameterBinding(Out-File): name="InputObject"; value="export type Tables<"
+>> ParameterBinding(Out-File): name="InputObject"; value="  DefaultSchemaTableNameOrOptions extends"
+>> ParameterBinding(Out-File): name="InputObject"; value="    | keyof (DefaultSchema["Tables"] & DefaultSchema["Views"])"
+>> ParameterBinding(Out-File): name="InputObject"; value="    | { schema: keyof DatabaseWithoutInternals },"
+>> ParameterBinding(Out-File): name="InputObject"; value="  TableName extends DefaultSchemaTableNameOrOptions extends {"
+>> ParameterBinding(Out-File): name="InputObject"; value="    schema: keyof DatabaseWithoutInternals"
+>> ParameterBinding(Out-File): name="InputObject"; value="  }"
+>> ParameterBinding(Out-File): name="InputObject"; value="    ? keyof (DatabaseWithoutInternals[DefaultSchemaTableNameOrOptions["schema"]]["Tables"] &"
+>> ParameterBinding(Out-File): name="InputObject"; value="        DatabaseWithoutInternals[DefaultSchemaTableNameOrOptions["schema"]]["Views"])"
+>> ParameterBinding(Out-File): name="InputObject"; value="    : never = never,"
+>> ParameterBinding(Out-File): name="InputObject"; value="> = DefaultSchemaTableNameOrOptions extends {"
+>> ParameterBinding(Out-File): name="InputObject"; value="  schema: keyof DatabaseWithoutInternals"
+>> ParameterBinding(Out-File): name="InputObject"; value="}"
+>> ParameterBinding(Out-File): name="InputObject"; value="  ? (DatabaseWithoutInternals[DefaultSchemaTableNameOrOptions["schema"]]["Tables"] &"
+>> ParameterBinding(Out-File): name="InputObject"; value="      DatabaseWithoutInternals[DefaultSchemaTableNameOrOptions["schema"]]["Views"])[TableName] extends {"
+>> ParameterBinding(Out-File): name="InputObject"; value="      Row: infer R"
+>> ParameterBinding(Out-File): name="InputObject"; value="    }"
+>> ParameterBinding(Out-File): name="InputObject"; value="    ? R"
+>> ParameterBinding(Out-File): name="InputObject"; value="    : never"
+>> ParameterBinding(Out-File): name="InputObject"; value="  : DefaultSchemaTableNameOrOptions extends keyof (DefaultSchema["Tables"] &"
+>> ParameterBinding(Out-File): name="InputObject"; value="        DefaultSchema["Views"])"
+>> ParameterBinding(Out-File): name="InputObject"; value="    ? (DefaultSchema["Tables"] &"
+>> ParameterBinding(Out-File): name="InputObject"; value="        DefaultSchema["Views"])[DefaultSchemaTableNameOrOptions] extends {"
+>> ParameterBinding(Out-File): name="InputObject"; value="        Row: infer R"
+>> ParameterBinding(Out-File): name="InputObject"; value="      }"
+>> ParameterBinding(Out-File): name="InputObject"; value="      ? R"
+>> ParameterBinding(Out-File): name="InputObject"; value="      : never"
+>> ParameterBinding(Out-File): name="InputObject"; value="    : never"
+>> ParameterBinding(Out-File): name="InputObject"; value=""
+>> ParameterBinding(Out-File): name="InputObject"; value="export type TablesInsert<"
+>> ParameterBinding(Out-File): name="InputObject"; value="  DefaultSchemaTableNameOrOptions extends"
+>> ParameterBinding(Out-File): name="InputObject"; value="    | keyof DefaultSchema["Tables"]"
+>> ParameterBinding(Out-File): name="InputObject"; value="    | { schema: keyof DatabaseWithoutInternals },"
+>> ParameterBinding(Out-File): name="InputObject"; value="  TableName extends DefaultSchemaTableNameOrOptions extends {"
+>> ParameterBinding(Out-File): name="InputObject"; value="    schema: keyof DatabaseWithoutInternals"
+>> ParameterBinding(Out-File): name="InputObject"; value="  }"
+>> ParameterBinding(Out-File): name="InputObject"; value="    ? keyof DatabaseWithoutInternals[DefaultSchemaTableNameOrOptions["schema"]]["Tables"]"
+>> ParameterBinding(Out-File): name="InputObject"; value="    : never = never,"
+>> ParameterBinding(Out-File): name="InputObject"; value="> = DefaultSchemaTableNameOrOptions extends {"
+>> ParameterBinding(Out-File): name="InputObject"; value="  schema: keyof DatabaseWithoutInternals"
+>> ParameterBinding(Out-File): name="InputObject"; value="}"
+>> ParameterBinding(Out-File): name="InputObject"; value="  ? DatabaseWithoutInternals[DefaultSchemaTableNameOrOptions["schema"]]["Tables"][TableName] extends {"
+>> ParameterBinding(Out-File): name="InputObject"; value="      Insert: infer I"
+>> ParameterBinding(Out-File): name="InputObject"; value="    }"
+>> ParameterBinding(Out-File): name="InputObject"; value="    ? I"
+>> ParameterBinding(Out-File): name="InputObject"; value="    : never"
+>> ParameterBinding(Out-File): name="InputObject"; value="  : DefaultSchemaTableNameOrOptions extends keyof DefaultSchema["Tables"]"
+>> ParameterBinding(Out-File): name="InputObject"; value="    ? DefaultSchema["Tables"][DefaultSchemaTableNameOrOptions] extends {"
+>> ParameterBinding(Out-File): name="InputObject"; value="        Insert: infer I"
+>> ParameterBinding(Out-File): name="InputObject"; value="      }"
+>> ParameterBinding(Out-File): name="InputObject"; value="      ? I"
+>> ParameterBinding(Out-File): name="InputObject"; value="      : never"
+>> ParameterBinding(Out-File): name="InputObject"; value="    : never"
+>> ParameterBinding(Out-File): name="InputObject"; value=""
+>> ParameterBinding(Out-File): name="InputObject"; value="export type TablesUpdate<"
+>> ParameterBinding(Out-File): name="InputObject"; value="  DefaultSchemaTableNameOrOptions extends"
+>> ParameterBinding(Out-File): name="InputObject"; value="    | keyof DefaultSchema["Tables"]"
+>> ParameterBinding(Out-File): name="InputObject"; value="    | { schema: keyof DatabaseWithoutInternals },"
+>> ParameterBinding(Out-File): name="InputObject"; value="  TableName extends DefaultSchemaTableNameOrOptions extends {"
+>> ParameterBinding(Out-File): name="InputObject"; value="    schema: keyof DatabaseWithoutInternals"
+>> ParameterBinding(Out-File): name="InputObject"; value="  }"
+>> ParameterBinding(Out-File): name="InputObject"; value="    ? keyof DatabaseWithoutInternals[DefaultSchemaTableNameOrOptions["schema"]]["Tables"]"
+>> ParameterBinding(Out-File): name="InputObject"; value="    : never = never,"
+>> ParameterBinding(Out-File): name="InputObject"; value="> = DefaultSchemaTableNameOrOptions extends {"
+>> ParameterBinding(Out-File): name="InputObject"; value="  schema: keyof DatabaseWithoutInternals"
+>> ParameterBinding(Out-File): name="InputObject"; value="}"
+>> ParameterBinding(Out-File): name="InputObject"; value="  ? DatabaseWithoutInternals[DefaultSchemaTableNameOrOptions["schema"]]["Tables"][TableName] extends {"
+>> ParameterBinding(Out-File): name="InputObject"; value="      Update: infer U"
+>> ParameterBinding(Out-File): name="InputObject"; value="    }"
+>> ParameterBinding(Out-File): name="InputObject"; value="    ? U"
+>> ParameterBinding(Out-File): name="InputObject"; value="    : never"
+>> ParameterBinding(Out-File): name="InputObject"; value="  : DefaultSchemaTableNameOrOptions extends keyof DefaultSchema["Tables"]"
+>> ParameterBinding(Out-File): name="InputObject"; value="    ? DefaultSchema["Tables"][DefaultSchemaTableNameOrOptions] extends {"
+>> ParameterBinding(Out-File): name="InputObject"; value="        Update: infer U"
+>> ParameterBinding(Out-File): name="InputObject"; value="      }"
+>> ParameterBinding(Out-File): name="InputObject"; value="      ? U"
+>> ParameterBinding(Out-File): name="InputObject"; value="      : never"
+>> ParameterBinding(Out-File): name="InputObject"; value="    : never"
+>> ParameterBinding(Out-File): name="InputObject"; value=""
+>> ParameterBinding(Out-File): name="InputObject"; value="export type Enums<"
+>> ParameterBinding(Out-File): name="InputObject"; value="  DefaultSchemaEnumNameOrOptions extends"
+>> ParameterBinding(Out-File): name="InputObject"; value="    | keyof DefaultSchema["Enums"]"
+>> ParameterBinding(Out-File): name="InputObject"; value="    | { schema: keyof DatabaseWithoutInternals },"
+>> ParameterBinding(Out-File): name="InputObject"; value="  EnumName extends DefaultSchemaEnumNameOrOptions extends {"
+>> ParameterBinding(Out-File): name="InputObject"; value="    schema: keyof DatabaseWithoutInternals"
+>> ParameterBinding(Out-File): name="InputObject"; value="  }"
+>> ParameterBinding(Out-File): name="InputObject"; value="    ? keyof DatabaseWithoutInternals[DefaultSchemaEnumNameOrOptions["schema"]]["Enums"]"
+>> ParameterBinding(Out-File): name="InputObject"; value="    : never = never,"
+>> ParameterBinding(Out-File): name="InputObject"; value="> = DefaultSchemaEnumNameOrOptions extends {"
+>> ParameterBinding(Out-File): name="InputObject"; value="  schema: keyof DatabaseWithoutInternals"
+>> ParameterBinding(Out-File): name="InputObject"; value="}"
+>> ParameterBinding(Out-File): name="InputObject"; value="  ? DatabaseWithoutInternals[DefaultSchemaEnumNameOrOptions["schema"]]["Enums"][EnumName]"
+>> ParameterBinding(Out-File): name="InputObject"; value="  : DefaultSchemaEnumNameOrOptions extends keyof DefaultSchema["Enums"]"
+>> ParameterBinding(Out-File): name="InputObject"; value="    ? DefaultSchema["Enums"][DefaultSchemaEnumNameOrOptions]"
+>> ParameterBinding(Out-File): name="InputObject"; value="    : never"
+>> ParameterBinding(Out-File): name="InputObject"; value=""
+>> ParameterBinding(Out-File): name="InputObject"; value="export type CompositeTypes<"
+>> ParameterBinding(Out-File): name="InputObject"; value="  PublicCompositeTypeNameOrOptions extends"
+>> ParameterBinding(Out-File): name="InputObject"; value="    | keyof DefaultSchema["CompositeTypes"]"
+>> ParameterBinding(Out-File): name="InputObject"; value="    | { schema: keyof DatabaseWithoutInternals },"
+>> ParameterBinding(Out-File): name="InputObject"; value="  CompositeTypeName extends PublicCompositeTypeNameOrOptions extends {"
+>> ParameterBinding(Out-File): name="InputObject"; value="    schema: keyof DatabaseWithoutInternals"
+>> ParameterBinding(Out-File): name="InputObject"; value="  }"
+>> ParameterBinding(Out-File): name="InputObject"; value="    ? keyof DatabaseWithoutInternals[PublicCompositeTypeNameOrOptions["schema"]]["CompositeTypes"]"
+>> ParameterBinding(Out-File): name="InputObject"; value="    : never = never,"
+>> ParameterBinding(Out-File): name="InputObject"; value="> = PublicCompositeTypeNameOrOptions extends {"
+>> ParameterBinding(Out-File): name="InputObject"; value="  schema: keyof DatabaseWithoutInternals"
+>> ParameterBinding(Out-File): name="InputObject"; value="}"
+>> ParameterBinding(Out-File): name="InputObject"; value="  ? DatabaseWithoutInternals[PublicCompositeTypeNameOrOptions["schema"]]["CompositeTypes"][CompositeTypeName]"
+>> ParameterBinding(Out-File): name="InputObject"; value="  : PublicCompositeTypeNameOrOptions extends keyof DefaultSchema["CompositeTypes"]"
+>> ParameterBinding(Out-File): name="InputObject"; value="    ? DefaultSchema["CompositeTypes"][PublicCompositeTypeNameOrOptions]"
+>> ParameterBinding(Out-File): name="InputObject"; value="    : never"
+>> ParameterBinding(Out-File): name="InputObject"; value=""
+>> ParameterBinding(Out-File): name="InputObject"; value="export const Constants = {"
+>> ParameterBinding(Out-File): name="InputObject"; value="  public: {"
+>> ParameterBinding(Out-File): name="InputObject"; value="    Enums: {},"
+>> ParameterBinding(Out-File): name="InputObject"; value="  },"
+>> ParameterBinding(Out-File): name="InputObject"; value="} as const"
+PS C:\Users\ELON\Projects-2026\IDEA STORE\Elimux-frontend-Nextjs-CLEAN> ./ci-master.ps1
+=== CI MASTER START ===
+✔ NEXT_PUBLIC_SUPABASE_URL OK
+✔ NEXT_PUBLIC_SUPABASE_ANON_KEY OK
+✔ SUPABASE_URL OK
+✔ SUPABASE_ANON_KEY OK
+✔ .env.example refreshed
+✔ Syncing keys to Vercel...
+
+
+
+
+
+
+✔ Vercel env updated
+✔ Supabase types updated
+✔ TypeScript clean
+Error: A variable with the name `NEXT_PUBLIC_SUPABASE_ANON_KEY` already exists for the target production on branch undef
+ined
+Vercel CLI 54.14.0 (Node.js 26.3.0)
+WARNING! NEXT_PUBLIC_ variables can be seen by anyone visiting your site
+> Removed trailing newline from stdin input
+? Add NEXT_PUBLIC_SUPABASE_URL to which Git branch? (leave empty for all Preview branches)?
+Vercel CLI 54.14.0 (Node.js 26.3.0)
+WARNING! The NEXT_PUBLIC_ prefix will make SUPABASE_ANON_KEY visible to anyone visiting your site
+> Removed trailing newline from stdin input
+? Add NEXT_PUBLIC_SUPABASE_ANON_KEY to which Git branch? (leave empty for all Preview branches)?
+Vercel CLI 54.14.0 (Node.js 26.3.0)
+WARNING! NEXT_PUBLIC_ variables can be seen by anyone visiting your site
+> Removed trailing newline from stdin input
+Error: A variable with the name `NEXT_PUBLIC_SUPABASE_URL` already exists for the target development on branch undefined
+Vercel CLI 54.14.0 (Node.js 26.3.0)
+WARNING! The NEXT_PUBLIC_ prefix will make SUPABASE_ANON_KEY visible to anyone visiting your site
+> Removed trailing newline from stdin input
+Error: A variable with the name `NEXT_PUBLIC_SUPABASE_ANON_KEY` already exists for the target development on branch unde
+fined
+✔ Vercel env updated
+✔ Supabase types updated
+✔ TypeScript clean
+
+> elimux-frontend@1.0.0 lint
+> next lint
+
+? How would you like to configure ESLint? https://nextjs.org/docs/basic-features/eslint
+ ▲ ESLint has successfully been configured. Run next lint again to view warnings and errors.
+✔ Lint clean
