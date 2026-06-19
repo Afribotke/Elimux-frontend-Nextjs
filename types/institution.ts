@@ -1,4 +1,4 @@
-﻿export interface InstitutionDashboardSummary {
+export interface InstitutionDashboardSummary {
   institution_id: string
   name: string
   email: string | null

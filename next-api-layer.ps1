@@ -1,10 +1,14 @@
 param(
-  [string]$ProjectRoot = ".",
+  [string]$ProjectRoot = (Get-Location),
   [switch]$SkipGit
 )
 
 Write-Host "==> Starting Next.js API layer automation..." -ForegroundColor Cyan
-Set-Location $ProjectRoot
+
+# Normalize absolute path
+$ProjectRoot = (Resolve-Path $ProjectRoot).Path
+
+Write-Host "Using project root: $ProjectRoot" -ForegroundColor Yellow
 
 # 1) Ensure folders exist
 $paths = @(
@@ -16,22 +20,23 @@ $paths = @(
 )
 
 foreach ($p in $paths) {
-  $full = Join-Path (Get-Location) $p
+  $full = Join-Path $ProjectRoot $p
   if (-not (Test-Path $full)) {
-    Write-Host "Creating folder: $p" -ForegroundColor Yellow
+    Write-Host "Creating folder: $full" -ForegroundColor Yellow
     New-Item -ItemType Directory -Path $full -Force | Out-Null
   } else {
-    Write-Host "Folder exists: $p" -ForegroundColor DarkGray
+    Write-Host "Folder exists: $full" -ForegroundColor DarkGray
   }
 }
 
-function Write-File($path, $content) {
-  Write-Host "Writing: $path" -ForegroundColor Green
+function Write-File($relativePath, $content) {
+  $fullPath = Join-Path $ProjectRoot $relativePath
+  Write-Host "Writing: $fullPath" -ForegroundColor Green
   $utf8NoBom = New-Object System.Text.UTF8Encoding($false)
-  [System.IO.File]::WriteAllText($path, $content, $utf8NoBom)
+  [System.IO.File]::WriteAllText($fullPath, $content, $utf8NoBom)
 }
 
-# 2) lib/supabase/server.ts
+# 2) Write files (absolute paths)
 Write-File "lib/supabase/server.ts" @'
 import { cookies } from 'next/headers'
 import { createServerClient } from '@supabase/ssr'
@@ -53,7 +58,6 @@ export function createSupabaseServer() {
 }
 '@
 
-# 3) types/institution.ts
 Write-File "types/institution.ts" @'
 export interface InstitutionDashboardSummary {
   institution_id: string
@@ -69,7 +73,6 @@ export interface InstitutionDashboardSummary {
 }
 '@
 
-# 4) app/api/institutions/[id]/dashboard/route.ts
 Write-File "app/api/institutions/[id]/dashboard/route.ts" @'
 import { NextResponse } from 'next/server'
 import { createSupabaseServer } from '@/lib/supabase/server'
@@ -105,7 +108,6 @@ export async function GET(
 }
 '@
 
-# 5) app/api/institutions/dashboard/route.ts
 Write-File "app/api/institutions/dashboard/route.ts" @'
 import { NextResponse } from 'next/server'
 import { createSupabaseServer } from '@/lib/supabase/server'
@@ -131,7 +133,6 @@ export async function GET() {
 }
 '@
 
-# 6) app/api/institutions/[id]/route.ts
 Write-File "app/api/institutions/[id]/route.ts" @'
 import { NextResponse } from 'next/server'
 import { createSupabaseServer } from '@/lib/supabase/server'
@@ -165,16 +166,5 @@ export async function GET(
   return NextResponse.json(data)
 }
 '@
-
-# 7) Git commit
-if (-not $SkipGit) {
-  if (Test-Path ".git") {
-    Write-Host "Staging changes with git..." -ForegroundColor Cyan
-    git add . | Out-Null
-    git commit -m "Add institution dashboard API layer" | Out-Null
-  } else {
-    Write-Host "No .git repo found, skipping git steps." -ForegroundColor DarkGray
-  }
-}
 
 Write-Host "==> Next.js API layer automation complete." -ForegroundColor Cyan
