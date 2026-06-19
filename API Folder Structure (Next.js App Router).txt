@@ -1,0 +1,70 @@
+/app
+  /api
+    /auth
+      login/route.ts
+      callback/route.ts
+      refresh/route.ts
+
+    /institutions
+      GET /api/institutions
+      [id]/
+        GET /api/institutions/[id]
+        PUT /api/institutions/[id]
+        DELETE /api/institutions/[id]
+
+    /programs
+      GET /api/programs
+      POST /api/programs
+      [id]/
+        GET /api/programs/[id]
+        PUT /api/programs/[id]
+        DELETE /api/programs/[id]
+
+    /applications
+      GET /api/applications
+      POST /api/applications
+      [id]/
+        GET /api/applications/[id]
+        PUT /api/applications/[id]
+        DELETE /api/applications/[id]
+
+    /staff
+      GET /api/staff
+      POST /api/staff
+      [id]/
+        GET /api/staff/[id]
+        PUT /api/staff/[id]
+        DELETE /api/staff/[id]
+
+    /documents
+      GET /api/documents
+      POST /api/documents
+      [id]/
+        GET /api/documents/[id]
+        DELETE /api/documents/[id]
+
+    /events
+      GET /api/events
+      POST /api/events
+      [id]/
+        GET /api/events/[id]
+        DELETE /api/events/[id]
+
+    /messages
+      GET /api/messages
+      POST /api/messages
+      [id]/
+        GET /api/messages/[id]
+        DELETE /api/messages/[id]
+
+    /students
+      GET /api/students
+      POST /api/students
+      [id]/
+        GET /api/students/[id]
+        PUT /api/students/[id]
+
+    /ai
+      search/route.ts
+      recommend/route.ts
+      match/route.ts
