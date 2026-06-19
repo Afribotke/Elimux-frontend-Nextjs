@@ -1,55 +1,31 @@
-import { NextResponse } from "next/server"
-import { createSupabaseServer } from "@/lib/supabase/server"
-import type { InstitutionDocument } from "@/types/institution-document"
+import { createRouteHandlerClient } from '@supabase/auth-helpers-nextjs'
+import { cookies } from 'next/headers'
 
-export async function GET(
-  _req: Request,
-  { params }: { params: { id: string } }
-) {
-  const supabase = createSupabaseServer()
+function getTenantContext() {
+  const cookieStore = cookies()
+  const token = cookieStore.get('sb-access-token')?.value
 
-  const { data, error } = await supabase
-    .from("institution_documents")
-    .select("*")
-    .eq("institution_id", params.id)
-    .order("uploaded_at", { ascending: false })
-    .returns<InstitutionDocument[]>()
-
-  if (error) {
-    return NextResponse.json(
-      { error: "Failed to fetch documents" },
-      { status: 500 }
-    )
+  if (!token) {
+    return { user_id: null, email: null, role: null, institution_id: null }
   }
 
-  return NextResponse.json(data ?? [])
+  const payload = JSON.parse(Buffer.from(token.split('.')[1], 'base64').toString())
+
+  return {
+    user_id: payload.sub || null,
+    email: payload.email || null,
+    role: payload.role || null,
+    institution_id: payload.institution_id || null
+  }
 }
 
-export async function POST(
-  req: Request,
-  { params }: { params: { id: string } }
-) {
-  const supabase = createSupabaseServer()
-  const body = await req.json()
+export async function GET() {
+  const supabase = createRouteHandlerClient({ cookies })
+  const ctx = getTenantContext()
 
-  const { data, error } = await supabase
-    .from("institution_documents")
-    .insert({
-      institution_id: params.id,
-      type: body.type,
-      name: body.name,
-      url: body.url,
-      uploaded_by: body.uploaded_by ?? null,
-    })
-    .select("*")
-    .single()
-
-  if (error) {
-    return NextResponse.json(
-      { error: "Failed to upload document" },
-      { status: 500 }
-    )
+  if (!ctx.user_id) {
+    return Response.json({ error: 'Unauthorized' }, { status: 401 })
   }
 
-  return NextResponse.json(data)
+  return Response.json({ ok: true, ctx })
 }

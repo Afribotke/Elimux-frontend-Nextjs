@@ -1,31 +1,31 @@
-import { NextResponse } from 'next/server'
-import { createSupabaseServer } from '@/lib/supabase/server'
+import { createRouteHandlerClient } from '@supabase/auth-helpers-nextjs'
+import { cookies } from 'next/headers'
 
-export async function GET(
-  _req: Request,
-  { params }: { params: { id: string } }
-) {
-  const supabase = createSupabaseServer()
+function getTenantContext() {
+  const cookieStore = cookies()
+  const token = cookieStore.get('sb-access-token')?.value
 
-  const { data, error } = await supabase
-    .from('institutions')
-    .select('*')
-    .eq('id', params.id)
-    .maybeSingle()
-
-  if (error) {
-    return NextResponse.json(
-      { error: 'Failed to fetch institution' },
-      { status: 500 }
-    )
+  if (!token) {
+    return { user_id: null, email: null, role: null, institution_id: null }
   }
 
-  if (!data) {
-    return NextResponse.json(
-      { error: 'Institution not found' },
-      { status: 404 }
-    )
+  const payload = JSON.parse(Buffer.from(token.split('.')[1], 'base64').toString())
+
+  return {
+    user_id: payload.sub || null,
+    email: payload.email || null,
+    role: payload.role || null,
+    institution_id: payload.institution_id || null
+  }
+}
+
+export async function GET() {
+  const supabase = createRouteHandlerClient({ cookies })
+  const ctx = getTenantContext()
+
+  if (!ctx.user_id) {
+    return Response.json({ error: 'Unauthorized' }, { status: 401 })
   }
 
-  return NextResponse.json(data)
+  return Response.json({ ok: true, ctx })
 }
