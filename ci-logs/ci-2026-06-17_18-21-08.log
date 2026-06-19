@@ -241,3 +241,12 @@ fined
 ? How would you like to configure ESLint? https://nextjs.org/docs/basic-features/eslint
  ▲ ESLint has successfully been configured. Run next lint again to view warnings and errors.
 ✔ Lint clean
+
+✔ Local build succeeded
+
+
+
+✔ Git push complete
+
+✔ Deployment triggered
+=== CI MASTER COMPLETE ===
