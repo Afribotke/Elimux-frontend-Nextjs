@@ -29,3 +29,42 @@ export async function GET() {
 
   return Response.json({ ok: true, ctx })
 }
+
+export async function GET(req: Request) {
+  // TODO: implement READ (list or single) using supabase and ctx
+  // const supabase = createRouteHandlerClient({ cookies })
+  // const ctx = getTenantContext()
+  // Example:
+  // const { data, error } = await supabase
+  //   .from('<TABLE_NAME>')
+  //   .select('*')
+  //   .eq('institution_id', ctx.institution_id)
+
+  return Response.json({ ok: true, operation: 'GET' })
+}
+
+export async function POST(req: Request) {
+  // TODO: implement CREATE
+  // const body = await req.json()
+  // const supabase = createRouteHandlerClient({ cookies })
+  // const ctx = getTenantContext()
+
+  return Response.json({ ok: true, operation: 'POST' })
+}
+
+export async function PUT(req: Request) {
+  // TODO: implement UPDATE
+  // const body = await req.json()
+  // const supabase = createRouteHandlerClient({ cookies })
+  // const ctx = getTenantContext()
+
+  return Response.json({ ok: true, operation: 'PUT' })
+}
+
+export async function DELETE(req: Request) {
+  // TODO: implement DELETE
+  // const supabase = createRouteHandlerClient({ cookies })
+  // const ctx = getTenantContext()
+
+  return Response.json({ ok: true, operation: 'DELETE' })
+}
