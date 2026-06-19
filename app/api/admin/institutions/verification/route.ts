@@ -68,3 +68,100 @@ export async function DELETE(req: Request) {
 
   return Response.json({ ok: true, operation: 'DELETE' })
 }
+\n\nAUTO_CRUD_TEMPLATE_START
+
+// GET (LIST)
+export async function GET() {
+  const supabase = createRouteHandlerClient({ cookies })
+  const ctx = getTenantContext()
+
+  if (!ctx.user_id) return Response.json({ error: 'Unauthorized' }, { status: 401 })
+
+  let query = supabase.from('institution_verification').select('*')
+
+  if (!true) {
+    query = query.eq('institution_id', ctx.institution_id)
+  }
+
+  const { data, error } = await query.order('created_at', { ascending: false })
+
+  if (error) return Response.json({ error: error.message }, { status: 400 })
+
+  return Response.json({ data })
+}
+
+// POST (CREATE)
+export async function POST(req) {
+  const supabase = createRouteHandlerClient({ cookies })
+  const ctx = getTenantContext()
+
+  if (!ctx.user_id) return Response.json({ error: 'Unauthorized' }, { status: 401 })
+  if (!['admin', 'staff'].includes(ctx.role)) return Response.json({ error: 'Forbidden' }, { status: 403 })
+
+  const body = await req.json()
+
+  const payload = {
+    ...body,
+    
+    created_by: ctx.user_id
+  }
+
+  const { data, error } = await supabase
+    .from('institution_verification')
+    .insert(payload)
+    .select()
+    .single()
+
+  if (error) return Response.json({ error: error.message }, { status: 400 })
+
+  return Response.json({ data })
+}
+
+// PUT (UPDATE)
+export async function PUT(req) {
+  const supabase = createRouteHandlerClient({ cookies })
+  const ctx = getTenantContext()
+
+  if (!ctx.user_id) return Response.json({ error: 'Unauthorized' }, { status: 401 })
+  if (!['admin', 'staff'].includes(ctx.role)) return Response.json({ error: 'Forbidden' }, { status: 403 })
+
+  const body = await req.json()
+  if (!body.id) return Response.json({ error: 'Missing id' }, { status: 400 })
+
+  let query = supabase.from('institution_verification').update(body).eq('id', body.id)
+
+  if (!true) {
+    query = query.eq('institution_id', ctx.institution_id)
+  }
+
+  const { data, error } = await query.select().single()
+
+  if (error) return Response.json({ error: error.message }, { status: 400 })
+
+  return Response.json({ data })
+}
+
+// DELETE
+export async function DELETE(req) {
+  const supabase = createRouteHandlerClient({ cookies })
+  const ctx = getTenantContext()
+
+  if (!ctx.user_id) return Response.json({ error: 'Unauthorized' }, { status: 401 })
+  if (!['admin', 'staff'].includes(ctx.role)) return Response.json({ error: 'Forbidden' }, { status: 403 })
+
+  const { id } = await req.json()
+  if (!id) return Response.json({ error: 'Missing id' }, { status: 400 })
+
+  let query = supabase.from('institution_verification').delete().eq('id', id)
+
+  if (!true) {
+    query = query.eq('institution_id', ctx.institution_id)
+  }
+
+  const { error } = await query
+  if (error) return Response.json({ error: error.message }, { status: 400 })
+
+  return Response.json({ success: true })
+}
+
+AUTO_CRUD_TEMPLATE_END
