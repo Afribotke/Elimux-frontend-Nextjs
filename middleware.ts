@@ -2,25 +2,27 @@ import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 
 export function middleware(req: NextRequest) {
-  const session = req.cookies.get("sb-access-token")?.value;
+  const token = req.cookies.get("sb-access-token")?.value;
 
-  const isAuthPage =
-    req.nextUrl.pathname.startsWith("/login") ||
-    req.nextUrl.pathname.startsWith("/register");
+  const adminRoutes = [
+    "/admin",
+    "/admin/users",
+    "/admin/institutions",
+    "/admin/programs",
+    "/admin/countries",
+    "/admin/logs",
+    "/admin/settings"
+  ];
 
-  const isProtected = req.nextUrl.pathname.startsWith("/dashboard");
+  const isAdminRoute = adminRoutes.some((r) => req.nextUrl.pathname.startsWith(r));
 
-  if (session && isAuthPage) {
-    return NextResponse.redirect(new URL("/dashboard", req.url));
-  }
-
-  if (!session && isProtected) {
-    return NextResponse.redirect(new URL("/login", req.url));
+  if (isAdminRoute && !token) {
+    return NextResponse.redirect(new URL("/admin/access-denied", req.url));
   }
 
   return NextResponse.next();
 }
 
 export const config = {
-  matcher: ["/dashboard/:path*", "/login", "/register"],
+  matcher: ["/admin/:path*"]
 };
