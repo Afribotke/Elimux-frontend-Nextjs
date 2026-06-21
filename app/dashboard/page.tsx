@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { getSupabaseClient } from "@/lib/supabaseClient";
+import { getSupabaseClient } from "@/lib/supabase/client";
 
 export default function DashboardPage() {
   const supabase = getSupabaseClient();
@@ -41,6 +41,3 @@ export default function DashboardPage() {
     </div>
   );
 }
-
-
-
