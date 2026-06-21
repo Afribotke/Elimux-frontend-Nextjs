@@ -16,7 +16,7 @@ export default function ProgramApplySection({ programId }: ProgramApplySectionPr
       </p>
 
       <Link
-        href={\/program/\/apply\}
+        href={`/program/${programId}/apply`}
         className="inline-block bg-indigo-600 text-white px-5 py-2 rounded-lg hover:bg-indigo-700 transition"
       >
         Apply Now
@@ -24,6 +24,3 @@ export default function ProgramApplySection({ programId }: ProgramApplySectionPr
     </div>
   );
 }
-
-
-
