@@ -1,67 +1,66 @@
-import { StudentsHeader } from "@/components/admin/students/students-header";
-import { StatsCards } from "@/components/admin/stats-cards";
-import { StudentTable } from "@/components/admin/students/StudentTable";
+﻿async function getStudents() {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL ?? ""}/api/admin/students`, {
+    cache: "no-store",
+  });
+  const data = await res.json();
+  if (Array.isArray(data)) return data;
+  return [];
+}
 
-const mockStudents = [
-  {
-    id: "1",
-    firstName: "Elijah",
-    lastName: "Kiptoo",
-    email: "elijah.kiptoo@example.com",
-    phone: "+254712345678",
-    institutionId: "1",
-    institutionName: "Nairobi Technical University",
-    programId: "1",
-    programName: "Diploma in Information Technology",
-    status: "active",
-    createdAt: "2024-01-10",
-  },
-  {
-    id: "2",
-    firstName: "Mary",
-    lastName: "Wanjiku",
-    email: "mary.wanjiku@example.com",
-    phone: "+254798765432",
-    institutionId: "2",
-    institutionName: "Mombasa College",
-    programId: "2",
-    programName: "Certificate in Business Management",
-    status: "pending",
-    createdAt: "2024-02-14",
-  },
-  {
-    id: "3",
-    firstName: "Brian",
-    lastName: "Odhiambo",
-    email: "brian.odhiambo@example.com",
-    phone: "+254701234567",
-    institutionId: "1",
-    institutionName: "Nairobi Technical University",
-    programId: "3",
-    programName: "Degree in Software Engineering",
-    status: "inactive",
-    createdAt: "2024-03-01",
-  },
-];
+export default async function StudentsPage() {
+  const students = await getStudents();
 
-export default function StudentsPage() {
   return (
     <div className="space-y-6">
-      <StudentsHeader total={mockStudents.length} />
+      <div>
+        <h1 className="text-xl font-semibold text-slate-800">Students</h1>
+        <p className="text-sm text-slate-500">
+          View registered students (creation usually via public flows).
+        </p>
+      </div>
 
-      <StatsCards
-        items={[
-          { label: "Total Students", value: mockStudents.length },
-          { label: "Active", value: 1 },
-          { label: "Pending", value: 1 },
-          { label: "Inactive", value: 1 },
-        ]}
-      />
-
-      <StudentTable students={mockStudents} />
+      <div className="rounded-lg border bg-white overflow-x-auto">
+        <table className="min-w-full text-sm">
+          <thead className="bg-slate-50 border-b">
+            <tr>
+              <th className="px-3 py-2 text-left font-medium text-slate-600">
+                Name
+              </th>
+              <th className="px-3 py-2 text-left font-medium text-slate-600">
+                Email
+              </th>
+              <th className="px-3 py-2 text-left font-medium text-slate-600">
+                Phone
+              </th>
+              <th className="px-3 py-2 text-left font-medium text-slate-600">
+                Country
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {students.map((s: any) => (
+              <tr key={s.id} className="border-b last:border-0">
+                <td className="px-3 py-2">
+                  {s.first_name} {s.last_name}
+                </td>
+                <td className="px-3 py-2 text-xs">{s.email}</td>
+                <td className="px-3 py-2 text-xs">{s.phone}</td>
+                <td className="px-3 py-2 text-xs">{s.country}</td>
+              </tr>
+            ))}
+            {students.length === 0 && (
+              <tr>
+                <td
+                  colSpan={4}
+                  className="px-3 py-6 text-center text-sm text-slate-500"
+                >
+                  No students yet.
+                </td>
+              </tr>
+            )}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 }
-
-
-

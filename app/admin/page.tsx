@@ -1,68 +1,53 @@
-import React from "react";
+﻿async function getCounts() {
+  const base = process.env.NEXT_PUBLIC_BASE_URL ?? "";
+  const [inst, prog, stud, apps] = await Promise.all([
+    fetch(`${base}/api/admin/institutions`, { cache: "no-store" }),
+    fetch(`${base}/api/admin/programs`, { cache: "no-store" }),
+    fetch(`${base}/api/admin/students`, { cache: "no-store" }),
+    fetch(`${base}/api/admin/applications`, { cache: "no-store" }),
+  ]);
 
-async function fetchCount(endpoint: string) {
-  try {
-    const res = await fetch(`http://localhost:3000/api/admin/${endpoint}`, {
-      cache: "no-store",
-    });
-    const data = await res.json();
-    return Array.isArray(data) ? data.length : 0;
-  } catch (e) {
-    return 0;
-  }
+  const institutions = await inst.json();
+  const programs = await prog.json();
+  const students = await stud.json();
+  const applications = await apps.json();
+
+  return {
+    institutions: Array.isArray(institutions) ? institutions.length : 0,
+    programs: Array.isArray(programs) ? programs.length : 0,
+    students: Array.isArray(students) ? students.length : 0,
+    applications: Array.isArray(applications) ? applications.length : 0,
+  };
 }
 
-export default async function AdminDashboardPage() {
-  const [users, institutions, programs, countries] = await Promise.all([
-    fetchCount("users"),
-    fetchCount("institutions"),
-    fetchCount("programs"),
-    fetchCount("countries"),
-  ]);
+export default async function AdminHomePage() {
+  const counts = await getCounts();
+
+  const cards = [
+    { label: "Institutions", value: counts.institutions },
+    { label: "Programs", value: counts.programs },
+    { label: "Students", value: counts.students },
+    { label: "Applications", value: counts.applications },
+  ];
 
   return (
     <div className="space-y-6">
-      <div>
-        <h1 className="text-xl font-semibold text-slate-900">
-          Dashboard Overview
-        </h1>
-        <p className="text-sm text-slate-500">
-          High-level view of ElimuX activity and configuration.
-        </p>
-      </div>
-
-      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-        <div className="rounded-lg border border-slate-200 bg-white p-4 shadow-sm">
-          <p className="text-xs font-medium uppercase tracking-wide text-slate-400">
-            Users
-          </p>
-          <p className="mt-2 text-3xl font-semibold text-slate-900">{users}</p>
-        </div>
-
-        <div className="rounded-lg border border-slate-200 bg-white p-4 shadow-sm">
-          <p className="text-xs font-medium uppercase tracking-wide text-slate-400">
-            Institutions
-          </p>
-          <p className="mt-2 text-3xl font-semibold text-slate-900">{institutions}</p>
-        </div>
-
-        <div className="rounded-lg border border-slate-200 bg-white p-4 shadow-sm">
-          <p className="text-xs font-medium uppercase tracking-wide text-slate-400">
-            Programs
-          </p>
-          <p className="mt-2 text-3xl font-semibold text-slate-900">{programs}</p>
-        </div>
-
-        <div className="rounded-lg border border-slate-200 bg-white p-4 shadow-sm">
-          <p className="text-xs font-medium uppercase tracking-wide text-slate-400">
-            Countries
-          </p>
-          <p className="mt-2 text-3xl font-semibold text-slate-900">{countries}</p>
-        </div>
+      <h1 className="text-xl font-semibold text-slate-800">Overview</h1>
+      <div className="grid gap-4 grid-cols-1 md:grid-cols-4">
+        {cards.map((card) => (
+          <div
+            key={card.label}
+            className="rounded-lg border bg-white px-4 py-3 flex flex-col gap-1"
+          >
+            <div className="text-xs uppercase tracking-wide text-slate-500">
+              {card.label}
+            </div>
+            <div className="text-2xl font-bold text-slate-900">
+              {card.value}
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   );
 }
-
-
-
