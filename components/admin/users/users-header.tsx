@@ -1,8 +1,8 @@
-import { Menu, Search, User } from 'lucide-react';
 "use client";
 
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
+import { Menu, Search, User, Download, Filter, Plus } from "lucide-react";
 import { Input } from "@/components/ui/Input";
 import {
   DropdownMenu,
@@ -12,7 +12,6 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/DropdownMenu";
-import { Download, Filter, Plus, Search } from "lucide-react";
 
 interface UsersHeaderProps {
   totalUsers: number;
@@ -82,7 +81,3 @@ export function UsersHeader({ totalUsers, onSearchChange }: UsersHeaderProps) {
     </div>
   );
 }
-
-
-
-

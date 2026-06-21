@@ -1,8 +1,8 @@
-import { Menu, Search, User } from 'lucide-react';
 "use client";
 
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
+import { Menu, Search, User, Filter, Plus } from "lucide-react";
 import { Input } from "@/components/ui/Input";
 import {
   DropdownMenu,
@@ -12,7 +12,6 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/DropdownMenu";
-import { Filter, Plus, Search } from "lucide-react";
 
 interface PaymentsHeaderProps {
   total: number;
@@ -82,7 +81,3 @@ export function PaymentsHeader({ total, onSearchChange }: PaymentsHeaderProps) {
     </div>
   );
 }
-
-
-
-
