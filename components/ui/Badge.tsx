@@ -1,25 +1,10 @@
-﻿import { cva } from "class-variance-authority";
-import { cn } from "@/lib/utils";
+﻿import * as React from "react";
 
-const badgeVariants = cva(
-  "inline-flex items-center rounded-full px-2 py-1 text-xs font-medium",
-  {
-    variants: {
-      variant: {
-        default: "bg-slate-200 text-slate-800",
-        success: "bg-green-200 text-green-800",
-        warning: "bg-yellow-200 text-yellow-800",
-        destructive: "bg-red-200 text-red-800",
-      },
-    },
-    defaultVariants: {
-      variant: "default",
-    },
-  }
-);
-
-export function Badge({ className, variant, ...props }) {
+export function Badge({ className = "", ...props }: React.HTMLAttributes<HTMLSpanElement>) {
   return (
-    <span className={cn(badgeVariants({ variant }), className)} {...props} />
+    <span
+      className={`inline-flex items-center rounded-full bg-slate-100 px-2 py-1 text-xs font-medium text-slate-700 ${className}`}
+      {...props}
+    />
   );
 }
