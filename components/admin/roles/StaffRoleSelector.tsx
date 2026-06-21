@@ -1,4 +1,3 @@
-import { Menu, Search, User } from 'lucide-react';
 "use client";
 
 import { UserRole } from "./role-types";
@@ -8,10 +7,8 @@ import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@/components/ui/DropdownMenu";
+} from "@/components/ui/dropdown-menu";
 import { ChevronDown } from "lucide-react";
 
 interface StaffRoleSelectorProps {
@@ -30,36 +27,27 @@ const ROLE_OPTIONS: UserRole[] = [
 export function StaffRoleSelector({ value, onChange }: StaffRoleSelectorProps) {
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger asChild>
-        <Button
-          variant="outline"
-          size="sm"
-          className="flex items-center gap-2 h-9"
-        >
+      <DropdownMenuTrigger>
+        <Button className="flex items-center gap-2 h-9 bg-white text-slate-900 border border-slate-300 hover:bg-slate-50">
           <StaffRoleBadge role={value} />
           <ChevronDown className="h-4 w-4 text-slate-500" />
         </Button>
       </DropdownMenuTrigger>
 
-      <DropdownMenuContent align="end" className="w-48">
-        <DropdownMenuLabel>Select Role</DropdownMenuLabel>
-        <DropdownMenuSeparator />
-
+      <DropdownMenuContent>
         {ROLE_OPTIONS.map((role) => (
-          <DropdownMenuItem
-            key={role}
-            onClick={() => onChange(role)}
-            className="flex items-center gap-2"
-          >
-            <StaffRoleBadge role={role} />
-            <span className="capitalize">{role}</span>
+          <DropdownMenuItem key={role}>
+            <button
+              type="button"
+              onClick={() => onChange(role)}
+              className="flex w-full items-center gap-2 text-left"
+            >
+              <StaffRoleBadge role={role} />
+              <span className="capitalize">{role}</span>
+            </button>
           </DropdownMenuItem>
         ))}
       </DropdownMenuContent>
     </DropdownMenu>
   );
 }
-
-
-
-
