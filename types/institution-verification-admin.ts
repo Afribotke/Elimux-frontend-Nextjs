@@ -9,3 +9,4 @@ export interface InstitutionVerificationAdminItem {
   documents_count: number
   created_at: string
 }
+

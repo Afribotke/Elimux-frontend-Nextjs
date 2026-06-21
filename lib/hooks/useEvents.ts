@@ -26,3 +26,4 @@ export async function createEvents(input) {
   if (!res.ok) throw new Error('Failed to create events')
   return res.json()
 }
+

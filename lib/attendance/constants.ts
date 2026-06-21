@@ -22,3 +22,4 @@ export const ATTENDANCE_DEFAULTS = {
   ALLOW_LATE_CHECKIN: true,
   MAX_LATE_MINUTES: 15,
 };
+

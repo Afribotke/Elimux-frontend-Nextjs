@@ -42,3 +42,4 @@ export const ETIMS_ERROR_CODES = {
   SERVER_ERROR: "500",
   SERVICE_UNAVAILABLE: "503",
 } as const;
+

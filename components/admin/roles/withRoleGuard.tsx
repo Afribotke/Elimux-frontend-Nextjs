@@ -36,3 +36,4 @@ export function withRoleGuard(
     return <Component {...props} />;
   };
 }
+

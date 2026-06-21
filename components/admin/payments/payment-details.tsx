@@ -72,3 +72,4 @@ export function PaymentDetails({ payment }: PaymentDetailsProps) {
     </div>
   );
 }
+

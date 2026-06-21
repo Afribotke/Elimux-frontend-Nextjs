@@ -1,3 +1,4 @@
+import { Menu, Search, User } from 'lucide-react';
 "use client";
 
 import { useState } from "react";
@@ -10,7 +11,7 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+} from "@/components/ui/DropdownMenu";
 import { Filter, Plus, Search } from "lucide-react";
 
 interface EnrollmentsHeaderProps {
@@ -80,3 +81,5 @@ export function EnrollmentsHeader({ total, onSearchChange }: EnrollmentsHeaderPr
     </div>
   );
 }
+
+

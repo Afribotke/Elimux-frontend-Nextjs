@@ -21,3 +21,4 @@ export default function ProgramsError({ error, reset }: { error: Error; reset: (
     </div>
   );
 }
+

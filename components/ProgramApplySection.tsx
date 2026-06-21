@@ -24,3 +24,4 @@ export default function ProgramApplySection({ programId }: ProgramApplySectionPr
     </div>
   );
 }
+

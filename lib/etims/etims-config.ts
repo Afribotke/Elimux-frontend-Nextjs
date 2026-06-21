@@ -21,3 +21,4 @@ export function getEtimsConfig(): EtimsConfig {
     retries: Number(process.env.ETIMS_RETRIES || 1),
   };
 }
+

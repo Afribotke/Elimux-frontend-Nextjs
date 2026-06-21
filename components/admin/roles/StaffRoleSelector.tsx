@@ -1,3 +1,4 @@
+import { Menu, Search, User } from 'lucide-react';
 "use client";
 
 import { UserRole } from "./role-types";
@@ -10,7 +11,7 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+} from "@/components/ui/DropdownMenu";
 import { ChevronDown } from "lucide-react";
 
 interface StaffRoleSelectorProps {
@@ -58,3 +59,5 @@ export function StaffRoleSelector({ value, onChange }: StaffRoleSelectorProps) {
     </DropdownMenu>
   );
 }
+
+

@@ -21,3 +21,4 @@ export default function CoursesError({ error, reset }: { error: Error; reset: ()
     </div>
   );
 }
+

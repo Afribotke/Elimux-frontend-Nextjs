@@ -33,3 +33,4 @@ export async function checkAttendanceHealth(): Promise<AttendanceHealthStatus> {
     };
   }
 }
+

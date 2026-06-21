@@ -41,3 +41,4 @@ export function canManagePayments(role: UserRole): boolean {
 export function canManageEnrollments(role: UserRole): boolean {
   return can(role, "canManageEnrollments");
 }
+

@@ -51,3 +51,4 @@ export interface EtimsError {
   message: string;
   details?: unknown;
 }
+

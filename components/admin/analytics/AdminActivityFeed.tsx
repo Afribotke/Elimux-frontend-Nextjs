@@ -32,3 +32,4 @@ export default function AdminActivityFeed({ activities }: AdminActivityFeedProps
     </div>
   );
 }
+

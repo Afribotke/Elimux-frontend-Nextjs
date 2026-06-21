@@ -45,3 +45,4 @@ export function isMockMode(): boolean {
 export function generateMockReceipt(): string {
   return \ETR-\\;
 }
+

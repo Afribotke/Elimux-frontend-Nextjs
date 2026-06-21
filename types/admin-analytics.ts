@@ -15,3 +15,4 @@ export interface AdminInstitutionStat {
   total_views: number
   created_at: string
 }
+

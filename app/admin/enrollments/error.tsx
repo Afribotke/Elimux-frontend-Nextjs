@@ -21,3 +21,4 @@ export default function EnrollmentsError({ error, reset }: { error: Error; reset
     </div>
   );
 }
+

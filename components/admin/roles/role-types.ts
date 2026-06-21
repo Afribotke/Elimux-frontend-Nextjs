@@ -74,3 +74,4 @@ export const ROLE_PERMISSIONS: Record<UserRole, RoleDefinition> = {
     canManageEnrollments: true,
   },
 };
+

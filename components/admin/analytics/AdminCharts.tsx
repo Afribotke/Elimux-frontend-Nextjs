@@ -9,3 +9,4 @@ export default function AdminCharts({ children }: { children: React.ReactNode })
     </div>
   );
 }
+

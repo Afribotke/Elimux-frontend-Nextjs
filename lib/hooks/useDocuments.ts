@@ -26,3 +26,4 @@ export async function createDocuments(input) {
   if (!res.ok) throw new Error('Failed to create documents')
   return res.json()
 }
+

@@ -26,3 +26,4 @@ export default function AdminStatsCards({ stats }: AdminStatsCardsProps) {
     </div>
   );
 }
+

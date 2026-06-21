@@ -6,3 +6,4 @@ export function toEventsRow(item) {
     location: item.location,
   }
 }
+

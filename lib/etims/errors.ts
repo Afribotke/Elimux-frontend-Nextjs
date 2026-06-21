@@ -39,3 +39,4 @@ export function normalizeEtimsError(err: any): EtimsError {
 export function getEtimsUserMessage(error: EtimsError): string {
   return ETIMS_ERROR_MAP[error.code] || error.message;
 }
+

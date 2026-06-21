@@ -23,3 +23,4 @@ export interface PaymentProvider {
    */
   refundPayment?(reference: string, amount?: number): Promise<PaymentResponse>;
 }
+

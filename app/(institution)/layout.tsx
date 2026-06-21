@@ -7,3 +7,4 @@ export default function InstitutionLayout({
 }) {
   return <>{children}</>;
 }
+

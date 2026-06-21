@@ -68,3 +68,4 @@ export function mapEtimsError(code?: string): EtimsErrorInfo {
   if (!code) return ETIMS_ERROR_MAP.DEFAULT;
   return ETIMS_ERROR_MAP[code] || ETIMS_ERROR_MAP.DEFAULT;
 }
+

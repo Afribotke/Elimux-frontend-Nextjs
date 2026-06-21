@@ -52,3 +52,4 @@ export default function InstitutionProgramsList({ programs, onSelect }: Institut
     </div>
   );
 }
+

@@ -113,3 +113,4 @@ export interface Invoice {
   notes?: string;
   reference?: string; // e.g. PO number, student ID, enrollment ID
 }
+

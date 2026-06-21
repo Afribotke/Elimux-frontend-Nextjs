@@ -94,3 +94,4 @@ export function buildInvoiceEmailHtml(invoice: Invoice) {
     </div>
   \;
 }
+

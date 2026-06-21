@@ -35,3 +35,4 @@ export default function AdminCountriesTable({ countries }: AdminCountriesTablePr
     </table>
   );
 }
+

@@ -6,3 +6,4 @@ export const studentsSchema = z.object({
   email: z.string(),
   phone: z.string(),
 })
+

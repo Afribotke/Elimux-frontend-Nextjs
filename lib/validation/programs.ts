@@ -7,3 +7,4 @@ export const programsSchema = z.object({
   tuition_fee: z.number(),
   mode: z.enum(["online", "onsite", "hybrid"]),
 })
+

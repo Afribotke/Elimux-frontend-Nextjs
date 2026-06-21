@@ -16,7 +16,8 @@ export default function AdminSidebar() {
     { label: "Settings", href: "/admin/settings" },
   ];
   return (
-    <aside className="w-64 h-screen border-r bg-white p-4 flex flex-col">
+    
+<aside className="w-64 h-screen border-r bg-white p-4 flex flex-col">
       <h2 className="text-xl font-bold mb-6">ElimuX Admin</h2>
 
       <nav className="space-y-2">
@@ -40,4 +41,6 @@ export default function AdminSidebar() {
     </aside>
   );
 }
+
+
 

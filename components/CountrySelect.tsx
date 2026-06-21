@@ -31,3 +31,4 @@ export default function CountrySelect({ countries, value, onChange }: CountrySel
     </select>
   );
 }
+

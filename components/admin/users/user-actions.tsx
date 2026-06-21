@@ -1,3 +1,4 @@
+import { Menu, Search, User } from 'lucide-react';
 "use client";
 
 import { useState, useTransition } from "react";
@@ -9,7 +10,7 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+} from "@/components/ui/DropdownMenu";
 import {
   Dialog,
   DialogContent,
@@ -205,3 +206,5 @@ export function UserActions({ user }: UserActionsProps) {
     </>
   );
 }
+
+

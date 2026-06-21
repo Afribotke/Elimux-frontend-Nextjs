@@ -6,3 +6,4 @@ export function toDocumentsRow(item) {
     type: item.type,
   }
 }
+

@@ -24,3 +24,4 @@ export default function useAdminLogs() {
 
   return { logs, loading, refresh: fetchLogs };
 }
+

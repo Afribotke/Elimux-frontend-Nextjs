@@ -5,3 +5,4 @@ export async function GET() {
   const countries = await getAdminCountries();
   return NextResponse.json(countries);
 }
+

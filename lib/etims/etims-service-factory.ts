@@ -12,3 +12,4 @@ export function createEtimsService() {
   const client = isMockMode() ? new MockEtimsClient() : new EtimsClient();
   return new EtimsService(client);
 }
+

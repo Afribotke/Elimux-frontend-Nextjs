@@ -43,3 +43,4 @@ export default function GlobalInstitutionsGrid({ institutions, onSelect }: Globa
     </div>
   );
 }
+

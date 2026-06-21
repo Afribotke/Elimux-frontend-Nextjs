@@ -40,3 +40,4 @@ export default function AdminResetPasswordForm({ onSubmit }: AdminResetPasswordF
     </form>
   );
 }
+

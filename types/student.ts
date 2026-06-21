@@ -17,3 +17,4 @@ export interface StudentSummary {
   total_programs: number
   created_at: string
 }
+

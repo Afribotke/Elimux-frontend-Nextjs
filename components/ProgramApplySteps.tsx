@@ -23,3 +23,4 @@ export default function ProgramApplySteps({ steps }: ProgramApplyStepsProps) {
     </div>
   );
 }
+

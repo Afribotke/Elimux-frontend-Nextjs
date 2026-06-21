@@ -5,3 +5,4 @@ export async function GET() {
   const institutions = await getAdminInstitutions();
   return NextResponse.json(institutions);
 }
+

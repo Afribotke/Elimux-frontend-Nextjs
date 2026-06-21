@@ -8,3 +8,4 @@ export function StatusBadge({ status }) {
   if (status === "rejected") color = "bg-red-200 text-red-800";
   return <span className={base + " " + color}>{status}</span>;
 }
+

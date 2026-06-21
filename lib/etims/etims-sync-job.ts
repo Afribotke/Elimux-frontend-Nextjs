@@ -60,3 +60,4 @@ export async function runEtimsSyncJob() {
     processed: pendingInvoices.length,
   };
 }
+

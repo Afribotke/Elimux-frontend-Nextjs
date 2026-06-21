@@ -10,3 +10,4 @@ export interface InstitutionDashboardSummary {
   total_students: number
   total_views: number
 }
+

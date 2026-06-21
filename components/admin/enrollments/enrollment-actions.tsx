@@ -1,3 +1,4 @@
+import { Menu, Search, User } from 'lucide-react';
 "use client";
 
 import { MoreHorizontal, Eye, Pencil, CheckCircle, XCircle, Trash } from "lucide-react";
@@ -9,7 +10,7 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+} from "@/components/ui/DropdownMenu";
 
 interface EnrollmentActionsProps {
   id: string;
@@ -72,3 +73,5 @@ export function EnrollmentActions({
     </DropdownMenu>
   );
 }
+
+

@@ -31,3 +31,4 @@ export const PAYMENT_ENDPOINTS = {
   BANK_TRANSFER: "/bank/transfer",
   WALLET_TRANSFER: "/wallet/transfer",
 };
+

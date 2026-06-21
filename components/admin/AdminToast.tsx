@@ -20,3 +20,4 @@ export default function AdminToast({ message, type = "info" }: AdminToastProps) 
     </div>
   );
 }
+

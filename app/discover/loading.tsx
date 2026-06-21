@@ -1,4 +1,4 @@
-import { Skeleton } from "@/components/ui/skeleton";
+import { Skeleton } from "@/components/ui/Skeleton";
 
 export default function LoadingDiscoverPage() {
   return (
@@ -25,3 +25,4 @@ export default function LoadingDiscoverPage() {
     </div>
   );
 }
+

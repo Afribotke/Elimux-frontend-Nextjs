@@ -21,3 +21,4 @@ export default function PaymentsError({ error, reset }: { error: Error; reset: (
     </div>
   );
 }
+

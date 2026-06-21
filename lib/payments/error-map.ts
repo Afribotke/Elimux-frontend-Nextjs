@@ -59,3 +59,4 @@ export function mapPaymentError(code?: string): PaymentErrorInfo {
   if (!code) return PAYMENT_ERROR_MAP.GENERIC_ERROR;
   return PAYMENT_ERROR_MAP[code] || PAYMENT_ERROR_MAP.GENERIC_ERROR;
 }
+

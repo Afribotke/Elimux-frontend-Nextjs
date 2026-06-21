@@ -26,3 +26,4 @@ export async function createStaff(input) {
   if (!res.ok) throw new Error('Failed to create staff')
   return res.json()
 }
+

@@ -40,3 +40,4 @@ export class MockAttendanceProvider {
     return this.records.filter(r => r.sessionId === sessionId);
   }
 }
+

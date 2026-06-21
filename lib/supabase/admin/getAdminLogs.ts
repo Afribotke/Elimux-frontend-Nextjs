@@ -13,3 +13,4 @@ export async function getAdminLogs() {
 
   return data;
 }
+

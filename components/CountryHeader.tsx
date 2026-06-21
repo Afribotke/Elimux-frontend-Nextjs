@@ -22,3 +22,4 @@ export default function CountryHeader({ code, name, region }: CountryHeaderProps
     </div>
   );
 }
+

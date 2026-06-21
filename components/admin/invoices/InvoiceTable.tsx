@@ -1,3 +1,4 @@
+import { Menu, Search, User } from 'lucide-react';
 "use client";
 
 import { Invoice } from "./invoice-types";
@@ -225,3 +226,5 @@ export function InvoiceTable({
     </div>
   );
 }
+
+

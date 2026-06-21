@@ -67,3 +67,4 @@ export class MockFederationProvider {
     return this.licenses.find(l => l.id === id);
   }
 }
+

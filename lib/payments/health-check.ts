@@ -37,3 +37,4 @@ export async function checkPaymentsHealth(): Promise<PaymentsHealthStatus> {
     };
   }
 }
+

@@ -37,3 +37,4 @@ export default function GlobalCountryGrid({ countries, onSelect }: GlobalCountry
     </div>
   );
 }
+

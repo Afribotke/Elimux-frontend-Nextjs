@@ -17,3 +17,4 @@ export default function AdminKPICard({ label, value, trend }: AdminKPICardProps)
     </div>
   );
 }
+

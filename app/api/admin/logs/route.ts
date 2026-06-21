@@ -5,3 +5,4 @@ export async function GET() {
   const logs = await getAdminLogs();
   return NextResponse.json(logs);
 }
+

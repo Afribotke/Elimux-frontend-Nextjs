@@ -6,3 +6,4 @@ export function toApplicationsRow(item) {
     status: item.status,
   }
 }
+

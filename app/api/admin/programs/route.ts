@@ -5,3 +5,4 @@ export async function GET() {
   const programs = await getAdminPrograms();
   return NextResponse.json(programs);
 }
+

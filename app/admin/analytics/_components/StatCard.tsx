@@ -11,3 +11,4 @@ export function StatCard({ label, value }: Props) {
     </div>
   )
 }
+

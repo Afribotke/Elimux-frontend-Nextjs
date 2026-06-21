@@ -5,3 +5,4 @@ export const staffSchema = z.object({
   last_name: z.string(),
   role: z.enum(["admin", "staff"]),
 })
+

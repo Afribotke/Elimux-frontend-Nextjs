@@ -1,4 +1,4 @@
-import { Skeleton } from "@/components/ui/skeleton";
+import { Skeleton } from "@/components/ui/Skeleton";
 
 interface DataTableSkeletonProps {
   rows?: number;
@@ -26,3 +26,4 @@ export function DataTableSkeleton({ rows = 6, columns = 4 }: DataTableSkeletonPr
     </div>
   );
 }
+

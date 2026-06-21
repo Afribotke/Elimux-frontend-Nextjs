@@ -37,3 +37,4 @@ export interface AttendanceRecord {
   notes?: string;
   metadata?: Record<string, any>;
 }
+

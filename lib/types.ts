@@ -99,3 +99,4 @@ export function formatTuition(
   const cur = currency || "KES";
   return `${cur} ${fee.toLocaleString("en-KE")}`;
 }
+

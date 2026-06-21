@@ -44,3 +44,4 @@ export default function InstitutionNavigationTabs({ institutionId }: Institution
     </div>
   );
 }
+

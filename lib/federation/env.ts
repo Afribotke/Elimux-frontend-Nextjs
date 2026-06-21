@@ -39,3 +39,4 @@ export function loadFederationEnv(strict: boolean = false): FederationEnvConfig 
     retries,
   };
 }
+

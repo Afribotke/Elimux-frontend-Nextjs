@@ -26,3 +26,4 @@ export async function createApplications(input) {
   if (!res.ok) throw new Error('Failed to create applications')
   return res.json()
 }
+

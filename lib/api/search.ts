@@ -143,3 +143,4 @@ export async function searchCourses(
     return { results: filterDemo(params), isDemo: true, error: message };
   }
 }
+

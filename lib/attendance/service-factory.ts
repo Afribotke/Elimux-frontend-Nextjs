@@ -16,3 +16,4 @@ export function createAttendanceService(): AttendanceService {
 
   return new AttendanceService(basePath);
 }
+

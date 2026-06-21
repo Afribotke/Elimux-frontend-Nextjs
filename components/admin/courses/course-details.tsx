@@ -53,3 +53,4 @@ export function CourseDetails({ course }: CourseDetailsProps) {
     </div>
   );
 }
+

@@ -1,3 +1,4 @@
+import { Menu, Search, User } from 'lucide-react';
 "use client";
 
 import { StaffRoleBadge } from "@/components/admin/roles/StaffRoleBadge";
@@ -115,3 +116,5 @@ export function StaffTable({
     </div>
   );
 }
+
+

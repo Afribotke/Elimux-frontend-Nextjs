@@ -53,3 +53,4 @@ export function useRole(): UseRoleResult {
     hasAtLeast: (minimum: UserRole) => hasAtLeastRole(role, minimum),
   };
 }
+

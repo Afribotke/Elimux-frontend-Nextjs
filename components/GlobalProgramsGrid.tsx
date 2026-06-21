@@ -38,3 +38,4 @@ export default function GlobalProgramsGrid({ programs, onSelect }: GlobalProgram
     </div>
   );
 }
+

@@ -10,3 +10,4 @@ export interface Institution {
   createdAt: string;
   adminName?: string | null;
 }
+

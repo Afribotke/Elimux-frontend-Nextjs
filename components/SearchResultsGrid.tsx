@@ -35,3 +35,4 @@ export default function SearchResultsGrid({ results, onSelect }: SearchResultsGr
     </div>
   );
 }
+

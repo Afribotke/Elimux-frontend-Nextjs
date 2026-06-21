@@ -1,3 +1,4 @@
+import { Menu, Search, User } from 'lucide-react';
 "use client";
 
 import { useState } from "react";
@@ -10,7 +11,7 @@ import {
   DropdownMenuItem,
   DropdownMenuLabel,
   DropdownMenuSeparator,
-} from "@/components/ui/dropdown-menu";
+} from "@/components/ui/DropdownMenu";
 import { Filter, Plus, ChevronDown } from "lucide-react";
 
 interface InvoicesHeaderProps {
@@ -96,3 +97,5 @@ export function InvoicesHeader({
     </div>
   );
 }
+
+

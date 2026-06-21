@@ -5,3 +5,4 @@ export const eventsSchema = z.object({
   date: z.string(),
   location: z.string(),
 })
+

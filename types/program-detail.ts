@@ -18,3 +18,4 @@ export interface ProgramDetailStats {
   total_students: number
   created_at: string
 }
+

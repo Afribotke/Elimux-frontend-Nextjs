@@ -26,3 +26,4 @@ export async function createStudents(input) {
   if (!res.ok) throw new Error('Failed to create students')
   return res.json()
 }
+

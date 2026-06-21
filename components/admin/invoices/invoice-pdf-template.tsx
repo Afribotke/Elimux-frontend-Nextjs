@@ -178,3 +178,4 @@ const totalRow: React.CSSProperties = {
   justifyContent: 'space-between',
   padding: '4px 0',
 };
+

@@ -9,3 +9,4 @@ export default function AdminAuthLayout({ children }: { children: React.ReactNod
     </div>
   );
 }
+

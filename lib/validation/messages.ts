@@ -5,3 +5,4 @@ export const messagesSchema = z.object({
   receiver_id: z.string(),
   content: z.string(),
 })
+

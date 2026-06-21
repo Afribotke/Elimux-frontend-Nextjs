@@ -42,3 +42,4 @@ export async function checkEtimsStatus(
 export function isFinalEtimsStatus(status: EtimsStatus): boolean {
   return status === "success" || status === "failed";
 }
+

@@ -36,3 +36,4 @@ export default function AdminUsersTable({ users }: AdminUsersTableProps) {
     </table>
   );
 }
+

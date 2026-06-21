@@ -1,3 +1,4 @@
+import { Menu, Search, User } from 'lucide-react';
 "use client";
 
 import { MoreHorizontal, Eye, Pencil, Archive, Trash } from "lucide-react";
@@ -9,7 +10,7 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+} from "@/components/ui/DropdownMenu";
 
 interface CourseActionsProps {
   id: string;
@@ -65,3 +66,5 @@ export function CourseActions({
     </DropdownMenu>
   );
 }
+
+

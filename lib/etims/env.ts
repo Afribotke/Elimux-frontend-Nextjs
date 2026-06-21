@@ -28,3 +28,4 @@ export function loadEtimsEnv(): EtimsEnvConfig {
     retries: Number(process.env.ETIMS_RETRIES || 1),
   };
 }
+

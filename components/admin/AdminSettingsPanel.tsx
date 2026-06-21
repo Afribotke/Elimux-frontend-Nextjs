@@ -30,3 +30,4 @@ export default function AdminSettingsPanel({ settings, onChange }: AdminSettings
     </div>
   );
 }
+

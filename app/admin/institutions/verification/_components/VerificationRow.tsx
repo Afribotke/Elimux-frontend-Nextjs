@@ -53,3 +53,4 @@ export function VerificationRow({ item, onUpdated }: Props) {
     </tr>
   )
 }
+

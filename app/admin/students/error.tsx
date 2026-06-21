@@ -21,3 +21,4 @@ export default function StudentsError({ error, reset }: { error: Error; reset: (
     </div>
   );
 }
+

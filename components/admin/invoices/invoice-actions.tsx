@@ -1,3 +1,4 @@
+import { Menu, Search, User } from 'lucide-react';
 "use client";
 
 import { Button } from "@/components/ui/button";
@@ -7,7 +8,7 @@ import {
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuSeparator,
-} from "@/components/ui/dropdown-menu";
+} from "@/components/ui/DropdownMenu";
 import { MoreHorizontal, FileText, Send, CheckCircle, Pencil, XCircle } from "lucide-react";
 
 interface InvoiceActionsProps {
@@ -85,3 +86,5 @@ export function InvoiceActions({
     </DropdownMenu>
   );
 }
+
+

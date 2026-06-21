@@ -11,3 +11,4 @@ export async function POST(req: Request) {
   const updated = await updateAdminSettings(body);
   return NextResponse.json(updated);
 }
+

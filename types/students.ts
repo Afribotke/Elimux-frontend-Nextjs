@@ -8,3 +8,4 @@ export type Students = {
   created_at: string
   created_by: string
 }
+

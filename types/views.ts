@@ -16,3 +16,4 @@ export interface ViewSummary {
   leads: number
   created_at: string
 }
+

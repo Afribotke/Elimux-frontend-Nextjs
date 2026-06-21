@@ -28,3 +28,4 @@ export async function updateAdminSettings(payload: any) {
 
   return data;
 }
+

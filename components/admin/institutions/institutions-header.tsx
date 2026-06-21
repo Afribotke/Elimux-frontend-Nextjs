@@ -1,3 +1,4 @@
+import { Menu, Search, User } from 'lucide-react';
 "use client";
 
 import { useState } from "react";
@@ -10,7 +11,7 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+} from "@/components/ui/DropdownMenu";
 import { Filter, Plus, Search } from "lucide-react";
 
 interface InstitutionsHeaderProps {
@@ -79,3 +80,5 @@ export function InstitutionsHeader({ total, onSearchChange }: InstitutionsHeader
     </div>
   );
 }
+
+

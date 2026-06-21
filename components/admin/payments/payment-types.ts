@@ -36,3 +36,4 @@ export interface Payment {
   createdAt: string;
   updatedAt?: string | null;
 }
+

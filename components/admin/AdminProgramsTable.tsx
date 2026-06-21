@@ -36,3 +36,4 @@ export default function AdminProgramsTable({ programs }: AdminProgramsTableProps
     </table>
   );
 }
+

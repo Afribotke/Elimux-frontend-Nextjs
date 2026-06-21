@@ -33,3 +33,4 @@ export default function PaginationControls({ page, totalPages, onChange }: Pagin
     </div>
   );
 }
+

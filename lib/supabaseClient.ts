@@ -8,3 +8,4 @@ export const supabase = createClient(
 export function getSupabaseClient() {
   return supabase;
 }
+

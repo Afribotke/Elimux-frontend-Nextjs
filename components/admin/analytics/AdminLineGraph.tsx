@@ -23,3 +23,4 @@ export default function AdminLineGraph({ title, labels, values }: LineGraphProps
     </div>
   );
 }
+

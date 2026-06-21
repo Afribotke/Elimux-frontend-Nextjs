@@ -7,3 +7,4 @@ export type Events = {
   created_at: string
   created_by: string
 }
+

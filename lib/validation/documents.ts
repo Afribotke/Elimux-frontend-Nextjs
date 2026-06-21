@@ -5,3 +5,4 @@ export const documentsSchema = z.object({
   url: z.string(),
   type: z.string(),
 })
+

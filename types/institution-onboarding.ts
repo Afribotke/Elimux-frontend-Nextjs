@@ -17,3 +17,4 @@ export interface InstitutionVerificationStatus {
   reviewed_by: string | null
   reviewed_at: string | null
 }
+

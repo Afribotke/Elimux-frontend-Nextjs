@@ -32,3 +32,4 @@ export default function AdminFilters({ filters, selected, onChange }: AdminFilte
     </div>
   );
 }
+

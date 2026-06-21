@@ -21,3 +21,4 @@ export interface InstitutionProfileStats {
   total_views: number
   created_at: string
 }
+

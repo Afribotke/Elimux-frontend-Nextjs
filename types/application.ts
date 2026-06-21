@@ -15,3 +15,4 @@ export interface ApplicationSummary {
   status: string
   created_at: string
 }
+

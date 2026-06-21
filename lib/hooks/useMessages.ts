@@ -26,3 +26,4 @@ export async function createMessages(input) {
   if (!res.ok) throw new Error('Failed to create messages')
   return res.json()
 }
+
