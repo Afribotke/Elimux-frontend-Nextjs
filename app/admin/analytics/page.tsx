@@ -1,65 +1,53 @@
-import { StatCard } from "./_components/StatCard"
-import type { AdminAnalytics, AdminInstitutionStat } from "@/types/admin-analytics"
-
-async function getAdminAnalytics(): Promise<AdminAnalytics> {
-  const res = await fetch(
-    `${process.env.NEXT_PUBLIC_BASE_URL}/api/admin/analytics`,
-    { cache: "no-store" }
-  )
-  if (!res.ok) throw new Error("Failed to load admin analytics")
-  return res.json()
+﻿async function getAnalytics() {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL ?? ""}/api/admin/analytics`, {
+    cache: "no-store",
+  });
+  const data = await res.json();
+  return Array.isArray(data) ? data : [];
 }
 
-async function getInstitutionStats(): Promise<AdminInstitutionStat[]> {
-  const res = await fetch(
-    `${process.env.NEXT_PUBLIC_BASE_URL}/api/admin/analytics/institutions`,
-    { cache: "no-store" }
-  )
-  if (!res.ok) throw new Error("Failed to load institution stats")
-  return res.json()
-}
-
-export default async function AdminAnalyticsPage() {
-  const [analytics, institutions] = await Promise.all([
-    getAdminAnalytics(),
-    getInstitutionStats(),
-  ])
+export default async function AnalyticsPage() {
+  const events = await getAnalytics();
 
   return (
-    <main className="p-6 space-y-6">
-      <header className="space-y-1">
-        <h1 className="text-2xl font-semibold tracking-tight">
-          Platform Analytics
-        </h1>
-        <p className="text-sm text-muted-foreground">
-          Global metrics across all institutions on ElimuX.
-        </p>
-      </header>
+    <div className="space-y-6">
+      <h1 className="text-xl font-semibold text-slate-800">Analytics</h1>
+      <p className="text-sm text-slate-500">
+        Recent platform events for admin insight.
+      </p>
 
-      <section className="grid grid-cols-2 md:grid-cols-5 gap-4">
-        <StatCard label="Institutions" value={analytics.total_institutions ?? 0} />
-        <StatCard label="Programs" value={analytics.total_programs ?? 0} />
-        <StatCard label="Students" value={analytics.total_students ?? 0} />
-        <StatCard label="Applications" value={analytics.total_applications ?? 0} />
-        <StatCard label="Views" value={analytics.total_views ?? 0} />
-      </section>
+      <div className="rounded-lg border bg-white overflow-x-auto">
+        <table className="min-w-full text-sm">
+          <thead className="bg-slate-50 border-b">
+            <tr>
+              <th className="px-3 py-2 text-left">Event</th>
+              <th className="px-3 py-2 text-left">Institution</th>
+              <th className="px-3 py-2 text-left">Actor</th>
+              <th className="px-3 py-2 text-left">Time</th>
+            </tr>
+          </thead>
+          <tbody>
+            {events.map((e: any) => (
+              <tr key={e.id} className="border-b last:border-0">
+                <td className="px-3 py-2 text-xs">{e.event_type}</td>
+                <td className="px-3 py-2 text-xs">{e.institution_id ?? "—"}</td>
+                <td className="px-3 py-2 text-xs">{e.actor_user_id ?? "—"}</td>
+                <td className="px-3 py-2 text-xs">
+                  {new Date(e.created_at).toLocaleString()}
+                </td>
+              </tr>
+            ))}
 
-      <section className="space-y-3">
-        <h2 className="text-sm font-semibold">Institution breakdown</h2>
-        <ul className="space-y-2 text-xs">
-          {institutions.map((inst) => (
-            <li key={inst.institution_id} className="border-b pb-2 last:border-b-0">
-              <div className="font-medium">{inst.name}</div>
-              <div className="text-muted-foreground">
-                Programs: {inst.total_programs} â€¢ Students: {inst.total_students} â€¢ Applications: {inst.total_applications} â€¢ Views: {inst.total_views}
-              </div>
-            </li>
-          ))}
-        </ul>
-      </section>
-    </main>
-  )
+            {events.length === 0 && (
+              <tr>
+                <td colSpan={4} className="px-3 py-6 text-center text-slate-500">
+                  No analytics events yet.
+                </td>
+              </tr>
+            )}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  );
 }
-
-
-
