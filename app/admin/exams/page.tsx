@@ -1,13 +1,13 @@
-﻿"use client";
+"use client";
 
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
+import { Badge } from "@/components/ui/Badge";
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 
 export default function ExamsPage() {
   const supabase = createClientComponentClient();
-  const [exams, setExams] = useState([]);
+  const [exams, setExams] = useState<any[]>([]);
 
   async function loadExams() {
     const { data } = await supabase.from("exams").select("*");
@@ -34,7 +34,7 @@ export default function ExamsPage() {
             <tr key={exam.id} className="border-b">
               <td className="p-3">{exam.name}</td>
               <td className="p-3">
-                <Badge variant={exam.active ? "success" : "warning"}>
+                <Badge className={exam.active ? "bg-emerald-100 text-emerald-700" : "bg-amber-100 text-amber-700"}>
                   {exam.active ? "Active" : "Inactive"}
                 </Badge>
               </td>
