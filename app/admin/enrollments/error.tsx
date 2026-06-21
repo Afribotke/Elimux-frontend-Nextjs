@@ -1,26 +1,18 @@
-"use client";
+﻿"use client";
 
-import { useEffect } from "react";
-import { Button } from "@/components/ui/button";
-
-export default function EnrollmentsError({ error, reset }: { error: Error; reset: () => void }) {
-  useEffect(() => {
-    console.error("Enrollments page error:", error);
-  }, [error]);
-
+export default function EnrollmentsError() {
   return (
-    <div className="flex flex-col items-center justify-center gap-4 py-20 text-center">
-      <h2 className="text-lg font-semibold text-slate-800">Something went wrong</h2>
-      <p className="max-w-sm text-sm text-slate-500">
-        We couldn't load the enrollments page. This may be a temporary issue.
+    <div className="p-6 bg-red-50 border border-red-200 rounded-lg">
+      <h2 className="text-lg font-semibold text-red-700">Error Loading Enrollments</h2>
+      <p className="text-sm text-red-600 mt-2">
+        Something went wrong while loading enrollment data.
       </p>
-
-      <Button onClick={reset} className="bg-sky-600 text-white hover:bg-sky-700">
-        Try again
-      </Button>
+      <button
+        onClick={() => location.reload()}
+        className="mt-4 bg-slate-900 text-white px-4 py-2 rounded text-sm hover:bg-slate-800"
+      >
+        Retry
+      </button>
     </div>
   );
 }
-
-
-
