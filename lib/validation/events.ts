@@ -6,3 +6,5 @@ export const eventsSchema = z.object({
   location: z.string(),
 })
 
+
+

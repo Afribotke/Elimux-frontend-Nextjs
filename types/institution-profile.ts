@@ -22,3 +22,4 @@ export interface InstitutionProfileStats {
   created_at: string
 }
 
+

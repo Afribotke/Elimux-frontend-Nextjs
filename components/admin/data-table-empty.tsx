@@ -18,3 +18,5 @@ export function DataTableEmpty({ title, description, action }: DataTableEmptyPro
   );
 }
 
+
+

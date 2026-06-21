@@ -30,3 +30,5 @@ export default function ProgramRequirementsCard({ requirements }: ProgramRequire
   );
 }
 
+
+

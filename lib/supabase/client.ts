@@ -41,3 +41,5 @@ export function isSupabaseConfigured(): boolean {
   return Boolean(supabaseUrl && supabaseAnonKey);
 }
 
+
+

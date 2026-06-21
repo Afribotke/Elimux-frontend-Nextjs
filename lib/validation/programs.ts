@@ -8,3 +8,5 @@ export const programsSchema = z.object({
   mode: z.enum(["online", "onsite", "hybrid"]),
 })
 
+
+

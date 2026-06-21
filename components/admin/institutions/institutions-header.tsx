@@ -82,3 +82,5 @@ export function InstitutionsHeader({ total, onSearchChange }: InstitutionsHeader
 }
 
 
+
+

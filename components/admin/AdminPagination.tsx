@@ -34,3 +34,5 @@ export default function AdminPagination({ page, totalPages, onChange }: AdminPag
   );
 }
 
+
+

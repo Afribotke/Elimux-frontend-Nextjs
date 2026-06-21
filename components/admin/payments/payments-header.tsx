@@ -84,3 +84,5 @@ export function PaymentsHeader({ total, onSearchChange }: PaymentsHeaderProps) {
 }
 
 
+
+

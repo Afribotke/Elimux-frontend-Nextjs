@@ -8,3 +8,4 @@ export type Applications = {
   created_by: string
 }
 
+

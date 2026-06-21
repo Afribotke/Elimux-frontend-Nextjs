@@ -55,3 +55,5 @@ export function StudentDetails({ student }: StudentDetailsProps) {
   );
 }
 
+
+

@@ -100,3 +100,5 @@ export function formatTuition(
   return `${cur} ${fee.toLocaleString("en-KE")}`;
 }
 
+
+

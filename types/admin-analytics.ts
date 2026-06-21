@@ -16,3 +16,4 @@ export interface AdminInstitutionStat {
   created_at: string
 }
 
+

@@ -16,3 +16,4 @@ export interface ApplicationSummary {
   created_at: string
 }
 
+

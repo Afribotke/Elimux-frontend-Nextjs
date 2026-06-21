@@ -40,3 +40,5 @@ export default function AdminTable({ columns, data }: AdminTableProps) {
   );
 }
 
+
+

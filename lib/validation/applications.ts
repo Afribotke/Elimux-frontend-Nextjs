@@ -6,3 +6,5 @@ export const applicationsSchema = z.object({
   status: z.enum(["pending", "approved", "rejected"]),
 })
 
+
+

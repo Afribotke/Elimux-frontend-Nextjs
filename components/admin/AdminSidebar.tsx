@@ -17,6 +17,7 @@ export default function AdminSidebar() {
   ];
   return (
     
+
 <aside className="w-64 h-screen border-r bg-white p-4 flex flex-col">
       <h2 className="text-xl font-bold mb-6">ElimuX Admin</h2>
 
@@ -41,6 +42,9 @@ export default function AdminSidebar() {
     </aside>
   );
 }
+
+
+
 
 
 

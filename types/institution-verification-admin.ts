@@ -10,3 +10,4 @@ export interface InstitutionVerificationAdminItem {
   created_at: string
 }
 
+

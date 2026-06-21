@@ -27,3 +27,5 @@ export async function createApplications(input) {
   return res.json()
 }
 
+
+

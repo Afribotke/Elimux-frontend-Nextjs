@@ -15,3 +15,4 @@ export interface InstitutionDocument {
   uploaded_by: string | null
 }
 
+

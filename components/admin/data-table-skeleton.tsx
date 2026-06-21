@@ -27,3 +27,5 @@ export function DataTableSkeleton({ rows = 6, columns = 4 }: DataTableSkeletonPr
   );
 }
 
+
+

@@ -46,3 +46,5 @@ export function generateMockReceipt(): string {
   return \ETR-\\;
 }
 
+
+

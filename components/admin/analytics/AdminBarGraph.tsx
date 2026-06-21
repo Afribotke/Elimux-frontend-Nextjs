@@ -24,3 +24,5 @@ export default function AdminBarGraph({ title, labels, values }: BarGraphProps) 
   );
 }
 
+
+

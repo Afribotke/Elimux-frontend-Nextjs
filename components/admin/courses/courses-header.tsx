@@ -84,3 +84,5 @@ export function CoursesHeader({ total, onSearchChange }: CoursesHeaderProps) {
 }
 
 
+
+

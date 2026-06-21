@@ -22,3 +22,5 @@ export default function InstitutionsError({ error, reset }: { error: Error; rese
   );
 }
 
+
+

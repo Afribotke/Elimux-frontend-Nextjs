@@ -69,3 +69,5 @@ export function mapEtimsError(code?: string): EtimsErrorInfo {
   return ETIMS_ERROR_MAP[code] || ETIMS_ERROR_MAP.DEFAULT;
 }
 
+
+

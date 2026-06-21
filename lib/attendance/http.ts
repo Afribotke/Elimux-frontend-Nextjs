@@ -62,3 +62,5 @@ export async function attendanceHttpRequest<T>(
   throw new Error("Attendance request failed unexpectedly");
 }
 
+
+
