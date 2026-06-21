@@ -15,10 +15,7 @@ export async function checkEtimsStatus(
   invoiceNumber: string
 ): Promise<EtimsSubmissionResponse> {
   try {
-    const response = await client.request<EtimsSubmissionResponse>(
-      \/checkStatus?invoice_number=\\,
-      { method: "GET" }
-    );
+    const response = await client.checkStatus(invoiceNumber);
 
     return {
       ...response,
@@ -42,6 +39,3 @@ export async function checkEtimsStatus(
 export function isFinalEtimsStatus(status: EtimsStatus): boolean {
   return status === "success" || status === "failed";
 }
-
-
-

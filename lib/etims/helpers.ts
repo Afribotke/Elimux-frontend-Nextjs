@@ -43,8 +43,5 @@ export function isMockMode(): boolean {
  * Generates a random ETIMS receipt number for mock mode.
  */
 export function generateMockReceipt(): string {
-  return \ETR-\\;
+  return `ETR-${Date.now()}`;
 }
-
-
-

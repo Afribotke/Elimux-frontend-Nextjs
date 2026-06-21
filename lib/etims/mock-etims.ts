@@ -16,7 +16,7 @@ export async function mockSubmitInvoice(
   if (isSuccess) {
     return {
       status: "success",
-      etims_receipt_number: \ETR-\\,
+      etims_receipt_number: `ETR-${Date.now()}`,
       message: "Invoice submitted successfully (mock)",
       timestamp: new Date().toISOString(),
       raw_response: payload,
@@ -48,9 +48,9 @@ export async function mockCheckStatus(
     status: randomStatus,
     etims_receipt_number:
       randomStatus === "success"
-        ? \ETR-\\
+        ? `ETR-${Date.now()}`
         : undefined,
-    message: \Mock ETIMS status for \\,
+    message: `Mock ETIMS status for ${invoiceNumber}`,
     timestamp: new Date().toISOString(),
     raw_response: { invoiceNumber, randomStatus },
   };
@@ -62,6 +62,3 @@ export async function mockCheckStatus(
 function delay(ms: number) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
-
-
-

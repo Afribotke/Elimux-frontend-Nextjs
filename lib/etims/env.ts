@@ -14,7 +14,7 @@ export interface EtimsEnvConfig {
 function requireEnv(name: string): string {
   const value = process.env[name];
   if (!value) {
-    throw new Error(\Missing required environment variable: \\);
+    throw new Error(`Missing required environment variable: ${name}`);
   }
   return value;
 }
@@ -28,6 +28,3 @@ export function loadEtimsEnv(): EtimsEnvConfig {
     retries: Number(process.env.ETIMS_RETRIES || 1),
   };
 }
-
-
-

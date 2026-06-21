@@ -11,7 +11,7 @@ export async function etimsHttpRequest<T>(
   options: RequestInit = {}
 ): Promise<T> {
   const config = getEtimsConfig();
-  const url = \\\\;
+  const url = `${config.baseUrl}${endpoint}`;
 
   let attempts = 0;
 
@@ -19,20 +19,17 @@ export async function etimsHttpRequest<T>(
     attempts++;
 
     try {
-      etimsInfo(\ETIMS Request → \\, { attempt: attempts });
+      etimsInfo(`ETIMS Request → ${url}`, { attempt: attempts });
 
       const controller = new AbortController();
-      const timeout = setTimeout(
-        () => controller.abort(),
-        config.timeoutMs
-      );
+      const timeout = setTimeout(() => controller.abort(), config.timeoutMs);
 
       const response = await fetch(url, {
         ...options,
         signal: controller.signal,
         headers: {
           "Content-Type": "application/json",
-          ...(config.apiKey ? { Authorization: \Bearer \\ } : {}),
+          ...(config.apiKey ? { Authorization: `Bearer ${config.apiKey}` } : {}),
           ...(options.headers || {}),
         },
       });
@@ -46,9 +43,7 @@ export async function etimsHttpRequest<T>(
           body: text,
         });
 
-        throw new Error(
-          \ETIMS request failed with status \\
-        );
+        throw new Error(`ETIMS request failed with status ${response.status}`);
       }
 
       const data = await response.json();
@@ -71,6 +66,3 @@ export async function etimsHttpRequest<T>(
 
   throw new Error("ETIMS request failed unexpectedly");
 }
-
-
-
