@@ -1,44 +1,43 @@
-import Link from "next/link";
-import { cookies } from "next/headers";
-import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
+ï»¿"use client";
 
-export const dynamic = "force-dynamic";
+import { useState, useEffect } from "react";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 
-export default async function AdminProgramsPage() {
-  const supabase = createServerComponentClient({ cookies });
+export default function ProgramsPage() {
+  const supabase = createClientComponentClient();
+  const [programs, setPrograms] = useState([]);
 
-  const { data: programs } = await supabase
-    .from("programs")
-    .select("id, title, level, institutions(name)")
-    .order("title");
+  async function loadPrograms() {
+    const { data } = await supabase.from("programs").select("*");
+    setPrograms(data || []);
+  }
+
+  useEffect(() => {
+    loadPrograms();
+  }, []);
 
   return (
-    <div className="space-y-4">
-      <h2 className="text-2xl font-bold">Programs</h2>
+    <div className="p-6">
+      <h1 className="text-xl font-bold mb-4">Programs</h1>
 
-      <div className="bg-white shadow rounded-lg divide-y">
-        {programs?.map((p) => (
-          <div key={p.id} className="px-4 py-3 flex items-center justify-between">
-            <div>
-              <div className="font-medium">{p.title}</div>
-              <div className="text-sm text-gray-600">
-                {p.level} · {p.institutions?.name}
-              </div>
-            </div>
-            <Link
-              href={`/program/${p.id}`}
-              className="text-sm text-blue-600 font-medium"
-            >
-              View
-            </Link>
-          </div>
-        )) || (
-          <div className="px-4 py-3 text-gray-500">No programs found.</div>
-        )}
-      </div>
+      <table className="min-w-full text-sm">
+        <thead>
+          <tr className="border-b bg-slate-50">
+            <th className="p-3 text-left">Name</th>
+            <th className="p-3 text-left">Category</th>
+          </tr>
+        </thead>
+        <tbody>
+          {programs.map((p) => (
+            <tr key={p.id} className="border-b">
+              <td className="p-3">{p.name}</td>
+              <td className="p-3">{p.category}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
   );
 }
-
-
-

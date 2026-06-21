@@ -1,44 +1,47 @@
-import Link from "next/link";
-import { cookies } from "next/headers";
-import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
+ï»¿"use client";
 
-export const dynamic = "force-dynamic";
+import { useState, useEffect } from "react";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 
-export default async function AdminExamsPage() {
-  const supabase = createServerComponentClient({ cookies });
+export default function ExamsPage() {
+  const supabase = createClientComponentClient();
+  const [exams, setExams] = useState([]);
 
-  const { data: exams } = await supabase
-    .from("exams")
-    .select("id, title, exam_type, institutions(name)")
-    .order("title");
+  async function loadExams() {
+    const { data } = await supabase.from("exams").select("*");
+    setExams(data || []);
+  }
+
+  useEffect(() => {
+    loadExams();
+  }, []);
 
   return (
-    <div className="space-y-4">
-      <h2 className="text-2xl font-bold">Exams</h2>
+    <div className="p-6">
+      <h1 className="text-xl font-bold mb-4">Exams</h1>
 
-      <div className="bg-white shadow rounded-lg divide-y">
-        {exams?.map((e) => (
-          <div key={e.id} className="px-4 py-3 flex items-center justify-between">
-            <div>
-              <div className="font-medium">{e.title}</div>
-              <div className="text-sm text-gray-600">
-                {e.exam_type} · {e.institutions?.name}
-              </div>
-            </div>
-            <Link
-              href={`/exam/${e.id}`}
-              className="text-sm text-blue-600 font-medium"
-            >
-              View
-            </Link>
-          </div>
-        )) || (
-          <div className="px-4 py-3 text-gray-500">No exams found.</div>
-        )}
-      </div>
+      <table className="min-w-full text-sm">
+        <thead>
+          <tr className="border-b bg-slate-50">
+            <th className="p-3 text-left">Name</th>
+            <th className="p-3 text-left">Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          {exams.map((exam) => (
+            <tr key={exam.id} className="border-b">
+              <td className="p-3">{exam.name}</td>
+              <td className="p-3">
+                <Badge variant={exam.active ? "success" : "warning"}>
+                  {exam.active ? "Active" : "Inactive"}
+                </Badge>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
   );
 }
-
-
-
