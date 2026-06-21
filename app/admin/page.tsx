@@ -1,51 +1,65 @@
-"use client";
+import React from "react";
 
-import AdminPageLayout from "@/components/admin/AdminPageLayout";
-import AdminStatsCards from "@/components/admin/AdminStatsCards";
-import AdminCharts from "@/components/admin/analytics/AdminCharts";
-import AdminLineGraph from "@/components/admin/analytics/AdminLineGraph";
-import AdminBarGraph from "@/components/admin/analytics/AdminBarGraph";
-import AdminKPICard from "@/components/admin/analytics/AdminKPICard";
-import AdminActivityFeed from "@/components/admin/analytics/AdminActivityFeed";
+async function fetchCount(endpoint: string) {
+  try {
+    const res = await fetch(`http://localhost:3000/api/admin/${endpoint}`, {
+      cache: "no-store",
+    });
+    const data = await res.json();
+    return Array.isArray(data) ? data.length : 0;
+  } catch (e) {
+    return 0;
+  }
+}
 
-export default function AdminDashboardPage() {
-  const stats = [
-    { label: "Total Users", value: 1240 },
-    { label: "Institutions", value: 87 },
-    { label: "Programs", value: 312 },
-    { label: "Countries", value: 42 },
-  ];
-
-  const activities = [
-    { id: "1", message: "New user registered", timestamp: "2 hours ago" },
-    { id: "2", message: "Institution updated", timestamp: "5 hours ago" },
-  ];
+export default async function AdminDashboardPage() {
+  const [users, institutions, programs, countries] = await Promise.all([
+    fetchCount("users"),
+    fetchCount("institutions"),
+    fetchCount("programs"),
+    fetchCount("countries"),
+  ]);
 
   return (
-    <AdminPageLayout>
-      <AdminStatsCards stats={stats} />
-
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
-        <AdminCharts>
-          <AdminLineGraph
-            title="User Growth"
-            labels={["Jan", "Feb", "Mar", "Apr"]}
-            values={[200, 350, 500, 700]}
-          />
-        </AdminCharts>
-
-        <AdminCharts>
-          <AdminBarGraph
-            title="Programs Added"
-            labels={["Jan", "Feb", "Mar", "Apr"]}
-            values={[10, 25, 40, 55]}
-          />
-        </AdminCharts>
+    <div className="space-y-6">
+      <div>
+        <h1 className="text-xl font-semibold text-slate-900">
+          Dashboard Overview
+        </h1>
+        <p className="text-sm text-slate-500">
+          High-level view of ElimuX activity and configuration.
+        </p>
       </div>
 
-      <div className="mt-6">
-        <AdminActivityFeed activities={activities} />
+      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+        <div className="rounded-lg border border-slate-200 bg-white p-4 shadow-sm">
+          <p className="text-xs font-medium uppercase tracking-wide text-slate-400">
+            Users
+          </p>
+          <p className="mt-2 text-3xl font-semibold text-slate-900">{users}</p>
+        </div>
+
+        <div className="rounded-lg border border-slate-200 bg-white p-4 shadow-sm">
+          <p className="text-xs font-medium uppercase tracking-wide text-slate-400">
+            Institutions
+          </p>
+          <p className="mt-2 text-3xl font-semibold text-slate-900">{institutions}</p>
+        </div>
+
+        <div className="rounded-lg border border-slate-200 bg-white p-4 shadow-sm">
+          <p className="text-xs font-medium uppercase tracking-wide text-slate-400">
+            Programs
+          </p>
+          <p className="mt-2 text-3xl font-semibold text-slate-900">{programs}</p>
+        </div>
+
+        <div className="rounded-lg border border-slate-200 bg-white p-4 shadow-sm">
+          <p className="text-xs font-medium uppercase tracking-wide text-slate-400">
+            Countries
+          </p>
+          <p className="mt-2 text-3xl font-semibold text-slate-900">{countries}</p>
+        </div>
       </div>
-    </AdminPageLayout>
+    </div>
   );
 }

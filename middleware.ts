@@ -2,21 +2,20 @@ import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 
 export function middleware(req: NextRequest) {
-  const token = req.cookies.get("sb-access-token")?.value;
+  const url = req.nextUrl;
 
-  const adminRoutes = [
-    "/admin",
-    "/admin/users",
-    "/admin/institutions",
-    "/admin/programs",
-    "/admin/countries",
-    "/admin/logs",
-    "/admin/settings"
-  ];
+  // Allow everything in development
+  if (process.env.NODE_ENV === "development") {
+    return NextResponse.next();
+  }
 
-  const isAdminRoute = adminRoutes.some((r) => req.nextUrl.pathname.startsWith(r));
+  // Prevent redirect loops
+  if (url.pathname === "/admin/access-denied") {
+    return NextResponse.next();
+  }
 
-  if (isAdminRoute && !token) {
+  // Protect admin routes in production
+  if (url.pathname.startsWith("/admin")) {
     return NextResponse.redirect(new URL("/admin/access-denied", req.url));
   }
 
@@ -24,5 +23,5 @@ export function middleware(req: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/admin/:path*"]
+  matcher: ["/admin/:path*"],
 };

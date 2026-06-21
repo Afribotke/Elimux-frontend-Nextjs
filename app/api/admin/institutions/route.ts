@@ -1,10 +1,7 @@
 import { NextResponse } from "next/server";
+import { getAdminInstitutions } from "@/lib/supabase/adminInstitutions";
 
 export async function GET() {
-  const institutions = [
-    { id: "1", name: "Nairobi University", city: "Nairobi", country: "Kenya" },
-    { id: "2", name: "Makerere University", city: "Kampala", country: "Uganda" },
-  ];
-
+  const institutions = await getAdminInstitutions();
   return NextResponse.json(institutions);
 }

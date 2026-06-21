@@ -1,10 +1,7 @@
 import { NextResponse } from "next/server";
+import { getAdminPrograms } from "@/lib/supabase/adminPrograms";
 
 export async function GET() {
-  const programs = [
-    { id: "1", name: "Computer Science", level: "Degree", institutionName: "Nairobi University" },
-    { id: "2", name: "Business Management", level: "Diploma", institutionName: "KCA University" },
-  ];
-
+  const programs = await getAdminPrograms();
   return NextResponse.json(programs);
 }

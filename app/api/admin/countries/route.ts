@@ -1,10 +1,7 @@
 import { NextResponse } from "next/server";
+import { getAdminCountries } from "@/lib/supabase/adminCountries";
 
 export async function GET() {
-  const countries = [
-    { code: "KE", name: "Kenya", region: "Africa" },
-    { code: "UG", name: "Uganda", region: "Africa" },
-  ];
-
+  const countries = await getAdminCountries();
   return NextResponse.json(countries);
 }

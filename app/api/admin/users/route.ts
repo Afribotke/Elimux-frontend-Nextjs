@@ -1,10 +1,7 @@
 import { NextResponse } from "next/server";
+import { getAdminUsers } from "@/lib/supabase/adminUsers";
 
 export async function GET() {
-  const users = [
-    { id: "1", name: "John Doe", email: "john@example.com", role: "Admin" },
-    { id: "2", name: "Jane Smith", email: "jane@example.com", role: "Editor" },
-  ];
-
+  const users = await getAdminUsers();
   return NextResponse.json(users);
 }
