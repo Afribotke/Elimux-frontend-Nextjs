@@ -1,4 +1,4 @@
-﻿type RateLimitResult = {
+type RateLimitResult = {
   allowed: boolean;
   retryAfter?: number;
 };

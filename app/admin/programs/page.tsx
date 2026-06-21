@@ -1,4 +1,4 @@
-﻿import Link from "next/link";
+import Link from "next/link";
 import { cookies } from "next/headers";
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 
@@ -22,7 +22,7 @@ export default async function AdminProgramsPage() {
             <div>
               <div className="font-medium">{p.title}</div>
               <div className="text-sm text-gray-600">
-                {p.level} · {p.institutions?.name}
+                {p.level} � {p.institutions?.name}
               </div>
             </div>
             <Link
