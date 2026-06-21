@@ -1,6 +1,6 @@
 "use client";
 
-import { Badge } from "@/components/ui/badge";
+import { Badge } from "@/components/ui/Badge";
 import { cn } from "@/lib/utils";
 
 interface StatusBadgeProps {
@@ -21,7 +21,6 @@ export function StatusBadge({ status }: StatusBadgeProps) {
 
   return (
     <Badge
-      variant="outline"
       className={cn(
         "rounded-full px-2.5 py-0.5 text-xs font-medium capitalize",
         colorClasses
@@ -31,6 +30,3 @@ export function StatusBadge({ status }: StatusBadgeProps) {
     </Badge>
   );
 }
-
-
-
