@@ -3,8 +3,7 @@
     cache: "no-store",
   });
   const data = await res.json();
-  if (Array.isArray(data)) return data;
-  return [];
+  return Array.isArray(data) ? data : [];
 }
 
 export default async function InvoicesPage() {
@@ -12,32 +11,20 @@ export default async function InvoicesPage() {
 
   return (
     <div className="space-y-6">
-      <div>
-        <h1 className="text-xl font-semibold text-slate-800">Invoices</h1>
-        <p className="text-sm text-slate-500">
-          Monitor payments linked to applications and students.
-        </p>
-      </div>
+      <h1 className="text-xl font-semibold text-slate-800">Invoices</h1>
+      <p className="text-sm text-slate-500">
+        Monitor payments linked to applications and students.
+      </p>
 
       <div className="rounded-lg border bg-white overflow-x-auto">
         <table className="min-w-full text-sm">
           <thead className="bg-slate-50 border-b">
             <tr>
-              <th className="px-3 py-2 text-left font-medium text-slate-600">
-                Student
-              </th>
-              <th className="px-3 py-2 text-left font-medium text-slate-600">
-                Program
-              </th>
-              <th className="px-3 py-2 text-left font-medium text-slate-600">
-                Institution
-              </th>
-              <th className="px-3 py-2 text-left font-medium text-slate-600">
-                Amount
-              </th>
-              <th className="px-3 py-2 text-left font-medium text-slate-600">
-                Status
-              </th>
+              <th className="px-3 py-2 text-left">Student</th>
+              <th className="px-3 py-2 text-left">Program</th>
+              <th className="px-3 py-2 text-left">Institution</th>
+              <th className="px-3 py-2 text-left">Amount</th>
+              <th className="px-3 py-2 text-left">Status</th>
             </tr>
           </thead>
           <tbody>
@@ -46,7 +33,9 @@ export default async function InvoicesPage() {
               const student = row.expanded?.student ?? row.students;
               const program = row.expanded?.program ?? row.programs;
               const institution =
-                row.expanded?.institution ?? row.applications?.programs?.institutions;
+                row.expanded?.institution ??
+                row.applications?.programs?.institutions;
+
               return (
                 <tr key={raw.id} className="border-b last:border-0">
                   <td className="px-3 py-2 text-xs">
@@ -55,24 +44,18 @@ export default async function InvoicesPage() {
                       : "—"}
                   </td>
                   <td className="px-3 py-2 text-xs">{program?.name ?? "—"}</td>
-                  <td className="px-3 py-2 text-xs">
-                    {institution?.name ?? "—"}
-                  </td>
+                  <td className="px-3 py-2 text-xs">{institution?.name ?? "—"}</td>
                   <td className="px-3 py-2 text-xs">
                     {raw.amount} {raw.currency}
                   </td>
-                  <td className="px-3 py-2 text-xs capitalize">
-                    {raw.status}
-                  </td>
+                  <td className="px-3 py-2 text-xs capitalize">{raw.status}</td>
                 </tr>
               );
             })}
+
             {invoices.length === 0 && (
               <tr>
-                <td
-                  colSpan={5}
-                  className="px-3 py-6 text-center text-sm text-slate-500"
-                >
+                <td colSpan={5} className="px-3 py-6 text-center text-slate-500">
                   No invoices yet.
                 </td>
               </tr>
