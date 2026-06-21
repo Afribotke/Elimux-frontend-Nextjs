@@ -6,32 +6,18 @@ export async function GET(req: Request) {
   const { searchParams } = new URL(req.url);
   const id = searchParams.get("id");
 
-  if (id) {
-    const { data, error } = await supabase
-      .from("institutions")
-      .select("*")
-      .eq("id", id)
-      .single();
-
-    if (error) return Response.json({ error }, { status: 400 });
-
-    return Response.json({
-      raw: data,
-      expanded: {}
-    });
-  }
-
-  const { data, error } = await supabase
-    .from("institutions")
+  let query = supabase
+    .from("students")
     .select("*")
     .order("created_at", { ascending: false });
 
+  if (id) query = query.eq("id", id);
+
+  const { data, error } = await query;
+
   if (error) return Response.json({ error }, { status: 400 });
 
-  return Response.json({
-    raw: data,
-    expanded: {}
-  });
+  return Response.json(data);
 }
 
 export async function POST(req: Request) {
@@ -39,17 +25,14 @@ export async function POST(req: Request) {
   const body = await req.json();
 
   const { data, error } = await supabase
-    .from("institutions")
+    .from("students")
     .insert(body)
     .select()
     .single();
 
   if (error) return Response.json({ error }, { status: 400 });
 
-  return Response.json({
-    raw: data,
-    expanded: {}
-  });
+  return Response.json(data);
 }
 
 export async function PUT(req: Request) {
@@ -58,7 +41,7 @@ export async function PUT(req: Request) {
   const { id, ...rest } = body;
 
   const { data, error } = await supabase
-    .from("institutions")
+    .from("students")
     .update(rest)
     .eq("id", id)
     .select()
@@ -66,10 +49,7 @@ export async function PUT(req: Request) {
 
   if (error) return Response.json({ error }, { status: 400 });
 
-  return Response.json({
-    raw: data,
-    expanded: {}
-  });
+  return Response.json(data);
 }
 
 export async function DELETE(req: Request) {
@@ -77,7 +57,7 @@ export async function DELETE(req: Request) {
   const { id } = await req.json();
 
   const { error } = await supabase
-    .from("institutions")
+    .from("students")
     .delete()
     .eq("id", id);
 

@@ -1,43 +1,25 @@
-import type { HTMLAttributes, ReactNode } from "react";
+﻿import { cva } from "class-variance-authority";
+import { cn } from "@/lib/utils";
 
-type Tone = "navy" | "gold" | "green" | "red" | "gray";
+const badgeVariants = cva(
+  "inline-flex items-center rounded-full px-2 py-1 text-xs font-medium",
+  {
+    variants: {
+      variant: {
+        default: "bg-slate-200 text-slate-800",
+        success: "bg-green-200 text-green-800",
+        warning: "bg-yellow-200 text-yellow-800",
+        destructive: "bg-red-200 text-red-800",
+      },
+    },
+    defaultVariants: {
+      variant: "default",
+    },
+  }
+);
 
-export interface BadgeProps extends HTMLAttributes<HTMLSpanElement> {
-  tone?: Tone;
-  children: ReactNode;
-}
-
-const toneClasses: Record<Tone, string> = {
-  navy: "bg-navy-50 text-navy",
-  gold: "bg-gold-50 text-gold-600",
-  green: "bg-green-50 text-green-700",
-  red: "bg-red-50 text-red-700",
-  gray: "bg-gray-100 text-gray-700"
-};
-
-function cx(...classes: Array<string | false | undefined>): string {
-  return classes.filter(Boolean).join(" ");
-}
-
-export function Badge({
-  tone = "navy",
-  className,
-  children,
-  ...props
-}: BadgeProps) {
+export function Badge({ className, variant, ...props }) {
   return (
-    <span
-      className={cx(
-        "inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium",
-        toneClasses[tone],
-        className
-      )}
-      {...props}
-    >
-      {children}
-    </span>
+    <span className={cn(badgeVariants({ variant }), className)} {...props} />
   );
 }
-
-
-

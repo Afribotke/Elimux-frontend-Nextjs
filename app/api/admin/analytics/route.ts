@@ -1,30 +1,37 @@
 ﻿import { cookies } from "next/headers";
 import { createRouteHandlerClient } from "@supabase/auth-helpers-nextjs";
 
-export async function GET() {
+export async function GET(req: Request) {
   const supabase = createRouteHandlerClient({ cookies });
-  const { data, error } = await supabase.from("analytics").select("*");
-  return Response.json({ data, error });
+  const { searchParams } = new URL(req.url);
+  const institutionId = searchParams.get("institution_id");
+
+  let query = supabase
+    .from("analytics_events")
+    .select("*")
+    .order("created_at", { ascending: false })
+    .limit(200);
+
+  if (institutionId) query = query.eq("institution_id", institutionId);
+
+  const { data, error } = await query;
+
+  if (error) return Response.json({ error }, { status: 400 });
+
+  return Response.json(data);
 }
 
 export async function POST(req: Request) {
   const supabase = createRouteHandlerClient({ cookies });
   const body = await req.json();
-  const { data, error } = await supabase.from("analytics").insert(body).select();
-  return Response.json({ data, error });
-}
 
-export async function PUT(req: Request) {
-  const supabase = createRouteHandlerClient({ cookies });
-  const body = await req.json();
-  const { id, ...rest } = body;
-  const { data, error } = await supabase.from("analytics").update(rest).eq("id", id).select();
-  return Response.json({ data, error });
-}
+  const { data, error } = await supabase
+    .from("analytics_events")
+    .insert(body)
+    .select()
+    .single();
 
-export async function DELETE(req: Request) {
-  const supabase = createRouteHandlerClient({ cookies });
-  const { id } = await req.json();
-  const { error } = await supabase.from("analytics").delete().eq("id", id);
-  return Response.json({ success: !error, error });
+  if (error) return Response.json({ error }, { status: 400 });
+
+  return Response.json(data);
 }
