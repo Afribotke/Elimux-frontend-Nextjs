@@ -5,8 +5,7 @@ async function getPrograms() {
     cache: "no-store",
   });
   const data = await res.json();
-  if (Array.isArray(data)) return data;
-  return data;
+  return Array.isArray(data) ? data : data;
 }
 
 async function getInstitutions() {
@@ -14,9 +13,7 @@ async function getInstitutions() {
     cache: "no-store",
   });
   const data = await res.json();
-  if (Array.isArray(data)) return data;
-  if (Array.isArray(data.raw)) return data.raw;
-  return [];
+  return Array.isArray(data) ? data : data.raw ?? [];
 }
 
 async function createProgram(formData: FormData) {
@@ -52,12 +49,7 @@ export default async function ProgramsPage() {
 
   return (
     <div className="space-y-6">
-      <div>
-        <h1 className="text-xl font-semibold text-slate-800">Programs</h1>
-        <p className="text-sm text-slate-500">
-          Manage academic programs across institutions.
-        </p>
-      </div>
+      <h1 className="text-xl font-semibold text-slate-800">Programs</h1>
 
       <form
         action={createProgram}
@@ -75,35 +67,41 @@ export default async function ProgramsPage() {
             </option>
           ))}
         </select>
+
         <input
           name="name"
           placeholder="Program name"
           required
           className="border rounded px-3 py-2 text-sm w-full"
         />
+
         <input
           name="category"
           placeholder="Category (e.g. Degree)"
           className="border rounded px-3 py-2 text-sm w-full"
         />
+
         <input
           name="duration_months"
           placeholder="Duration (months)"
           type="number"
           className="border rounded px-3 py-2 text-sm w-full"
         />
+
         <input
           name="tuition_fee"
           placeholder="Tuition fee"
           type="number"
           className="border rounded px-3 py-2 text-sm w-full"
         />
+
         <input
           name="currency"
           placeholder="Currency"
           defaultValue="KES"
           className="border rounded px-3 py-2 text-sm w-full"
         />
+
         <button
           type="submit"
           className="mt-2 md:mt-0 col-span-full md:col-span-2 inline-flex items-center justify-center rounded bg-slate-900 px-3 py-2 text-sm font-medium text-white hover:bg-slate-800"
@@ -116,33 +114,22 @@ export default async function ProgramsPage() {
         <table className="min-w-full text-sm">
           <thead className="bg-slate-50 border-b">
             <tr>
-              <th className="px-3 py-2 text-left font-medium text-slate-600">
-                Program
-              </th>
-              <th className="px-3 py-2 text-left font-medium text-slate-600">
-                Institution
-              </th>
-              <th className="px-3 py-2 text-left font-medium text-slate-600">
-                Category
-              </th>
-              <th className="px-3 py-2 text-left font-medium text-slate-600">
-                Duration
-              </th>
-              <th className="px-3 py-2 text-left font-medium text-slate-600">
-                Tuition
-              </th>
+              <th className="px-3 py-2 text-left">Program</th>
+              <th className="px-3 py-2 text-left">Institution</th>
+              <th className="px-3 py-2 text-left">Category</th>
+              <th className="px-3 py-2 text-left">Duration</th>
+              <th className="px-3 py-2 text-left">Tuition</th>
             </tr>
           </thead>
           <tbody>
             {rows.map((row: any) => {
               const raw = row.raw ?? row;
               const inst = row.expanded?.institution ?? row.institutions;
+
               return (
                 <tr key={raw.id} className="border-b last:border-0">
                   <td className="px-3 py-2">{raw.name}</td>
-                  <td className="px-3 py-2 text-xs text-slate-700">
-                    {inst?.name ?? "—"}
-                  </td>
+                  <td className="px-3 py-2 text-xs">{inst?.name ?? "—"}</td>
                   <td className="px-3 py-2">{raw.category}</td>
                   <td className="px-3 py-2">
                     {raw.duration_months ? `${raw.duration_months} months` : "—"}
@@ -155,12 +142,10 @@ export default async function ProgramsPage() {
                 </tr>
               );
             })}
+
             {rows.length === 0 && (
               <tr>
-                <td
-                  colSpan={5}
-                  className="px-3 py-6 text-center text-sm text-slate-500"
-                >
+                <td colSpan={5} className="px-3 py-6 text-center text-slate-500">
                   No programs yet.
                 </td>
               </tr>

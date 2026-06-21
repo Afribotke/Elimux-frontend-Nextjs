@@ -3,8 +3,7 @@
     cache: "no-store",
   });
   const data = await res.json();
-  if (Array.isArray(data)) return data;
-  return [];
+  return Array.isArray(data) ? data : [];
 }
 
 export default async function StudentsPage() {
@@ -12,29 +11,19 @@ export default async function StudentsPage() {
 
   return (
     <div className="space-y-6">
-      <div>
-        <h1 className="text-xl font-semibold text-slate-800">Students</h1>
-        <p className="text-sm text-slate-500">
-          View registered students (creation usually via public flows).
-        </p>
-      </div>
+      <h1 className="text-xl font-semibold text-slate-800">Students</h1>
+      <p className="text-sm text-slate-500">
+        View registered students (created via public onboarding).
+      </p>
 
       <div className="rounded-lg border bg-white overflow-x-auto">
         <table className="min-w-full text-sm">
           <thead className="bg-slate-50 border-b">
             <tr>
-              <th className="px-3 py-2 text-left font-medium text-slate-600">
-                Name
-              </th>
-              <th className="px-3 py-2 text-left font-medium text-slate-600">
-                Email
-              </th>
-              <th className="px-3 py-2 text-left font-medium text-slate-600">
-                Phone
-              </th>
-              <th className="px-3 py-2 text-left font-medium text-slate-600">
-                Country
-              </th>
+              <th className="px-3 py-2 text-left">Name</th>
+              <th className="px-3 py-2 text-left">Email</th>
+              <th className="px-3 py-2 text-left">Phone</th>
+              <th className="px-3 py-2 text-left">Country</th>
             </tr>
           </thead>
           <tbody>
@@ -48,11 +37,12 @@ export default async function StudentsPage() {
                 <td className="px-3 py-2 text-xs">{s.country}</td>
               </tr>
             ))}
+
             {students.length === 0 && (
               <tr>
                 <td
                   colSpan={4}
-                  className="px-3 py-6 text-center text-sm text-slate-500"
+                  className="px-3 py-6 text-center text-slate-500"
                 >
                   No students yet.
                 </td>
