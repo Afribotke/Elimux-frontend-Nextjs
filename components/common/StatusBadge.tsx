@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 
 export function StatusBadge({ status }) {
   const base = "px-2 py-1 rounded-full text-xs font-medium";

@@ -1,4 +1,4 @@
-import Link from "next/link"
+﻿import Link from "next/link"
 import type { InstitutionDashboardSummary } from "@/types/institution"
 
 async function getInstitutions(): Promise<InstitutionDashboardSummary[]> {

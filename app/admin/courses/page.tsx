@@ -1,4 +1,4 @@
-import { CoursesHeader } from "@/components/admin/courses/courses-header";
+﻿import { CoursesHeader } from "@/components/admin/courses/courses-header";
 import { StatsCards } from "@/components/admin/stats-cards";
 import { CourseTable } from "@/components/admin/courses/CourseTable";
 

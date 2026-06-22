@@ -1,4 +1,4 @@
-import { PaymentsHeader } from "@/components/admin/payments/payments-header";
+﻿import { PaymentsHeader } from "@/components/admin/payments/payments-header";
 import { StatsCards } from "@/components/admin/stats-cards";
 import { PaymentTable } from "@/components/admin/payments/PaymentTable";
 

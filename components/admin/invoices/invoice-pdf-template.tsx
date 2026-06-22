@@ -1,4 +1,4 @@
-import { Invoice } from "./invoice-types";
+﻿import { Invoice } from "./invoice-types";
 
 interface InvoicePdfTemplateProps {
   invoice: Invoice;

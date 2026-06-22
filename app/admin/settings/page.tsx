@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import AdminPageLayout from "@/components/admin/AdminPageLayout";
 import AdminSettingsPanel from "@/components/admin/AdminSettingsPanel";

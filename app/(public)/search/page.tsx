@@ -1,4 +1,4 @@
-import { Suspense } from "react";
+﻿import { Suspense } from "react";
 import { SearchExperience } from "@/app/(public)/search/SearchExperience";
 
 export const metadata = {

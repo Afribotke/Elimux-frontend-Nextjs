@@ -1,4 +1,4 @@
-import { Skeleton } from "@/components/ui/Skeleton";
+﻿import { Skeleton } from "@/components/ui/skeleton";
 import { DataTableSkeleton } from "@/components/admin/data-table-skeleton";
 
 export default function LoadingUsersPage() {

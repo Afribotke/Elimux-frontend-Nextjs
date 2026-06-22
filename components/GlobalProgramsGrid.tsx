@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import React from "react";
 
@@ -31,7 +31,7 @@ export default function GlobalProgramsGrid({ programs, onSelect }: GlobalProgram
           <p className="font-semibold">{p.name}</p>
           {p.level && <p className="text-xs text-gray-600">{p.level}</p>}
           {p.institutionName && (
-            <p className="text-xs text-gray-500 mt-1">{p.institutionName} � {p.country}</p>
+            <p className="text-xs text-gray-500 mt-1">{p.institutionName} — {p.country}</p>
           )}
         </button>
       ))}

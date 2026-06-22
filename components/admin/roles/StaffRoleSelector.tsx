@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { UserRole } from "./role-types";
 import { StaffRoleBadge } from "./StaffRoleBadge";

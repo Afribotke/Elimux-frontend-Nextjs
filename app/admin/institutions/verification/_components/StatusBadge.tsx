@@ -1,4 +1,4 @@
-import type { VerificationStatus } from "@/types/institution-verification-admin"
+﻿import type { VerificationStatus } from "@/types/institution-verification-admin"
 
 export function StatusBadge({ status }: { status: VerificationStatus }) {
   const color =

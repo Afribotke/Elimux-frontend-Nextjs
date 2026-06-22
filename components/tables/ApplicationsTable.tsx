@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import { useApplicationss } from '@/lib/hooks/useApplications';
 import { LoadingState } from '../common/LoadingState';
 import { ErrorState } from '../common/ErrorState';

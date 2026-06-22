@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { Student } from "./student-types";
 import { StatusBadge } from "@/components/admin/status-badge";

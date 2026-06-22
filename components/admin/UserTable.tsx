@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useMemo } from "react";
 import { AdminUser } from "./users/user-types";
@@ -56,7 +56,7 @@ export function UserTable({ users, loading = false, searchQuery = "" }: UserTabl
           <tbody className="divide-y divide-slate-100">
             {filtered.map((user) => (
               <tr key={user.id} className="hover:bg-slate-50">
-                <td className="px-4 py-3">{user.name ?? "—"}</td>
+                <td className="px-4 py-3">{user.name ?? "â€”"}</td>
                 <td className="px-4 py-3">{user.email}</td>
                 <td className="px-4 py-3 capitalize">{user.role}</td>
                 <td className="px-4 py-3">

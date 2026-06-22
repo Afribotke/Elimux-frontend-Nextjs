@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { Enrollment } from "./enrollment-types";
 import { StatusBadge } from "@/components/admin/status-badge";

@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import React from "react";
 
@@ -10,7 +10,7 @@ export default function GlobalHeroSection() {
       <div className="relative p-10 text-white text-center">
         <h1 className="text-4xl font-bold">Explore Global Education</h1>
         <p className="text-indigo-100 text-sm mt-3 max-w-2xl mx-auto">
-          Discover institutions, programs, and opportunities across the world � powered by Afribot AI.
+          Discover institutions, programs, and opportunities across the world — powered by Afribot AI.
         </p>
       </div>
     </section>

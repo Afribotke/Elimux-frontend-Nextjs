@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { Program } from "./program-types";
 import { StatusBadge } from "@/components/admin/status-badge";
