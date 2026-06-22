@@ -2,10 +2,10 @@
 
 import { useState, useEffect } from "react";
 import { Badge } from "@/components/ui/Badge";
-import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
+import { createClient } from "@/utils/supabase/client";
 
 export default function ExamsPage() {
-  const supabase = createClientComponentClient();
+  const supabase = createClient();
   const [exams, setExams] = useState<any[]>([]);
 
   async function loadExams() {
@@ -44,4 +44,5 @@ export default function ExamsPage() {
     </div>
   );
 }
+
 
