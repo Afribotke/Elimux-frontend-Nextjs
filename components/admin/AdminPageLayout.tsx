@@ -1,24 +1,17 @@
 ﻿"use client";
 
-import React from "react";
-import AdminSidebar from "./AdminSidebar";
-import AdminTopbar from "./AdminTopbar";
+import React, { ReactNode } from "react";
+import { AdminSidebar } from "./AdminSidebar";
 
-export default function AdminPageLayout({ children }: { children: React.ReactNode }) {
+interface AdminPageLayoutProps {
+  children: ReactNode;
+}
+
+export default function AdminPageLayout({ children }: AdminPageLayoutProps) {
   return (
-    <div className="flex">
+    <div className="flex min-h-screen bg-muted/30">
       <AdminSidebar />
-
-      <div className="flex-1 flex flex-col">
-        <AdminTopbar />
-
-        <main className="p-6 bg-gray-50 min-h-screen">
-          {children}
-        </main>
-      </div>
+      <main className="flex-1 px-6 py-6 lg:px-8">{children}</main>
     </div>
   );
 }
-
-
-

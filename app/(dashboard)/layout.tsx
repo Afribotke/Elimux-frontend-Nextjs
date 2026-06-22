@@ -1,9 +1,10 @@
-﻿import React from 'react';
-import { PageShell } from '@/components/layout/PageShell';
+﻿import React, { ReactNode } from "react";
+import { PageShell } from "@/components/layout/PageShell";
 
-export default function DashboardLayout({ children }) {
-  return <PageShell>{children}</PageShell>;
+interface DashboardLayoutProps {
+  children: ReactNode;
 }
 
-
-
+export default function DashboardLayout({ children }: DashboardLayoutProps) {
+  return <PageShell>{children}</PageShell>;
+}

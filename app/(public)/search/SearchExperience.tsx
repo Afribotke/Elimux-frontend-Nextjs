@@ -1,19 +1,37 @@
-﻿export default function SearchExperience() {
+﻿"use client";
+
+import React, { useState } from "react";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
+import { Search } from "lucide-react";
+
+export function SearchExperience({ initialQuery = "" }) {
+  const [query, setQuery] = useState(initialQuery);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log("Searching for:", query);
+  };
+
   return (
-    <div className="p-6 bg-white border rounded-lg shadow-sm">
-      <h1 className="text-xl font-semibold text-slate-800 mb-4">Search</h1>
-
-      <div className="space-y-4">
-        <input
-          type="text"
-          placeholder="Search programs or institutions..."
-          className="w-full border rounded px-3 py-2 text-sm"
+    <div className="mx-auto flex w-full max-w-3xl flex-col gap-4">
+      <form onSubmit={handleSubmit} className="flex gap-2">
+        <Input
+          placeholder="Search programs, institutions, or locations..."
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
         />
-
-        <button className="bg-slate-900 text-white px-4 py-2 rounded text-sm hover:bg-slate-800">
+        <Button type="submit">
+          <Search className="mr-2 h-4 w-4" />
           Search
-        </button>
-      </div>
+        </Button>
+      </form>
+
+      <p className="text-sm text-muted-foreground">
+        ElimuX helps students discover programs across Kenya and Africa.
+      </p>
     </div>
   );
 }
+
+export default SearchExperience;
