@@ -1,8 +1,6 @@
 ﻿"use client";
 
 import { useEffect } from "react";
-import { Button } from "@/components/ui/button";
-
 export default function StudentsError({ error, reset }: { error: Error; reset: () => void }) {
   useEffect(() => {
     console.error("Students page error:", error);
@@ -21,6 +19,7 @@ export default function StudentsError({ error, reset }: { error: Error; reset: (
     </div>
   );
 }
+
 
 
 

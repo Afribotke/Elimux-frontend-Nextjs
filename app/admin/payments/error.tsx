@@ -1,8 +1,6 @@
 ﻿"use client";
 
 import { useEffect } from "react";
-import { Button } from "@/components/ui/button";
-
 export default function PaymentsError({ error, reset }: { error: Error; reset: () => void }) {
   useEffect(() => {
     console.error("Payments page error:", error);
@@ -21,6 +19,7 @@ export default function PaymentsError({ error, reset }: { error: Error; reset: (
     </div>
   );
 }
+
 
 
 
