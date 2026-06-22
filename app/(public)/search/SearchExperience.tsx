@@ -8,7 +8,7 @@ import { Search } from "lucide-react";
 export function SearchExperience({ initialQuery = "" }) {
   const [query, setQuery] = useState(initialQuery);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     console.log("Searching for:", query);
   };
