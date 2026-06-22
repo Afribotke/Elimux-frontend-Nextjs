@@ -1,7 +1,6 @@
 ﻿"use client";
 
 import { useState, useEffect } from "react";
-import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/Badge";
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 
@@ -45,3 +44,4 @@ export default function ExamsPage() {
     </div>
   );
 }
+
