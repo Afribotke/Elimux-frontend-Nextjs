@@ -2,14 +2,16 @@
 
 import React from "react";
 import { Button } from "@/components/ui/button";
-import {
-  DropdownMenu,
-  DropdownMenuTrigger,
-  DropdownMenuContent,
-  DropdownMenuItem
-} from "@/components/ui/dropdown-menu";
-import { MoreHorizontal, Plus, Filter, Download, UserPlus } from "lucide-react";
+import { Download } from "lucide-react";
 
-export default function Header() {
-  return <div>Header placeholder — regenerated cleanly</div>;
+export function PaymentsHeader() {
+  return (
+    <div className="flex items-center justify-between">
+      <h2 className="text-xl font-semibold">Payments</h2>
+      <Button>
+        <Download className="mr-2 h-4 w-4" />
+        Export
+      </Button>
+    </div>
+  );
 }
