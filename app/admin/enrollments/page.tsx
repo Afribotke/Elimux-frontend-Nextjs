@@ -1,4 +1,4 @@
-﻿import { EnrollmentsHeader } from "@/components/admin/enrollments/enrollments-header";
+﻿import EnrollmentsHeader from "./EnrollmentsHeader";
 import { StatsCards } from "@/components/admin/stats-cards";
 import { EnrollmentTable } from "@/components/admin/enrollments/EnrollmentTable";
 
@@ -59,6 +59,7 @@ export default function EnrollmentsPage() {
     </div>
   );
 }
+
 
 
 
