@@ -13,12 +13,13 @@ export default function PaymentsError({ error, reset }: { error: Error; reset: (
         We couldn't load the payments page. This may be a temporary issue.
       </p>
 
-      <Button onClick={reset} className="bg-sky-600 text-white hover:bg-sky-700">
+      <button onClick={reset} className="bg-sky-600 text-white hover:bg-sky-700">
         Try again
-      </Button>
+      </button>
     </div>
   );
 }
+
 
 
 
