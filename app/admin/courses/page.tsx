@@ -1,4 +1,4 @@
-﻿import { CoursesHeader } from "@/components/admin/courses/courses-header";
+﻿import CoursesHeader from "./CoursesHeader";
 import { StatsCards } from "@/components/admin/stats-cards";
 import { CourseTable } from "@/components/admin/courses/CourseTable";
 
@@ -59,6 +59,7 @@ export default function CoursesPage() {
     </div>
   );
 }
+
 
 
 
