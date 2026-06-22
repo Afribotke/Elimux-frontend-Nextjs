@@ -1,5 +1,4 @@
-﻿import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
+﻿import { Card, CardContent } from "@/components/ui/card";
 import HeroSearch from "@/app/(public)/HeroSearch";
 
 export default function PublicPage() {
