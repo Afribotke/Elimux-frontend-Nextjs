@@ -1,25 +1,19 @@
 ﻿"use client";
 
-import { useEffect } from "react";
-export default function StudentsError({ error, reset }: { error: Error; reset: () => void }) {
-  useEffect(() => {
-    console.error("Students page error:", error);
-  }, [error]);
-
+export default function ErrorPage({ reset }: { reset: () => void }) {
   return (
-    <div className="flex flex-col items-center justify-center gap-4 py-20 text-center">
-      <h2 className="text-lg font-semibold text-slate-800">Something went wrong</h2>
-      <p className="max-w-sm text-sm text-slate-500">
-        We couldn't load the students page. This may be a temporary issue.
+    <div className="flex flex-col items-center justify-center py-10">
+      <h2 className="text-xl font-semibold text-red-600">Something went wrong</h2>
+      <p className="text-muted-foreground mt-2">
+        An unexpected error occurred while loading this page.
       </p>
 
-      <Button onClick={reset} className="bg-sky-600 text-white hover:bg-sky-700">
+      <button
+        onClick={reset}
+        className="mt-4 bg-sky-600 text-white px-4 py-2 rounded hover:bg-sky-700"
+      >
         Try again
-      </Button>
+      </button>
     </div>
   );
 }
-
-
-
-
