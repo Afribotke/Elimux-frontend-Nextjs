@@ -2,8 +2,9 @@
 
 import { useState } from "react";
 import { StaffTable } from "@/components/admin/staff/StaffTable";
+import type { StaffMember } from "@/components/admin/staff/types";
 
-const mockStaff = [
+const staff: StaffMember[] = [
   {
     id: "1",
     name: "Elijah Kiptoo",
@@ -15,55 +16,39 @@ const mockStaff = [
     id: "2",
     name: "Mary Wanjiku",
     email: "mary@example.com",
-    role: "manager",
-    status: "active",
+    role: "staff",
+    status: "disabled",
   },
   {
     id: "3",
     name: "Brian Odhiambo",
     email: "brian@example.com",
-    role: "editor",
+    role: "staff",
     status: "invited",
-  },
-  {
-    id: "4",
-    name: "Grace Achieng",
-    email: "grace@example.com",
-    role: "viewer",
-    status: "disabled",
   },
 ];
 
 export default function StaffPage() {
-  const [staff, setStaff] = useState(mockStaff);
+  const [data, setData] = useState<StaffMember[]>(staff);
 
-  const handleRoleChange = (id: string, role: any) => {
-    setStaff((prev) =>
-      prev.map((member) =>
-        member.id === id ? { ...member, role } : member
-      )
+  const handleRoleChange = (id: string, newRole: string) => {
+    setData((prev) =>
+      prev.map((s) => (s.id === id ? { ...s, role: newRole } : s))
     );
   };
 
   return (
     <div className="space-y-6">
-      {/* Header */}
       <div className="flex items-center justify-between">
-        <div>
-          <h1 className="text-xl font-semibold text-slate-900">Staff</h1>
-          <p className="text-sm text-slate-500">
-            Manage institution staff and their roles.
-          </p>
-        </div>
+        <h1 className="text-xl font-semibold">Staff</h1>
 
         <button className="bg-sky-600 text-white px-4 py-2 rounded hover:bg-sky-700">
           Add Staff
         </button>
       </div>
 
-      {/* Staff Table */}
       <StaffTable
-        staff={staff}
+        staff={data}
         onRoleChange={handleRoleChange}
         onView={(id) => console.log("View staff", id)}
         onRemove={(id) => console.log("Remove staff", id)}
@@ -71,7 +56,3 @@ export default function StaffPage() {
     </div>
   );
 }
-
-
-
-
