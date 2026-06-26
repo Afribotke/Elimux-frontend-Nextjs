@@ -16,6 +16,7 @@ import {
   canManageEnrollments,
   hasAtLeastRole,
 } from "./permissions";
+import { getSupabaseClient } from "@/lib/supabase/client";
 
 interface UseRoleResult {
   role: UserRole;
@@ -30,15 +31,27 @@ interface UseRoleResult {
 }
 
 export function useRole(): UseRoleResult {
-  // In real implementation, this will come from auth/session
   const [role, setRole] = useState<UserRole>("viewer");
 
   useEffect(() => {
-    // TODO: Replace with actual auth provider
-    const stored = localStorage.getItem("user-role") as UserRole | null;
-    if (stored && ROLE_HIERARCHY.includes(stored)) {
-      setRole(stored);
-    }
+    const supabase = getSupabaseClient();
+    if (!supabase) return;
+
+    supabase.auth.getUser().then(({ data: { user } }) => {
+      const userRole = user?.user_metadata?.role as UserRole | undefined;
+      if (userRole && ROLE_HIERARCHY.includes(userRole)) {
+        setRole(userRole);
+      }
+    });
+
+    const { data: { subscription } } = supabase.auth.onAuthStateChange(
+      (_event, session) => {
+        const userRole = session?.user?.user_metadata?.role as UserRole | undefined;
+        setRole(userRole && ROLE_HIERARCHY.includes(userRole) ? userRole : "viewer");
+      }
+    );
+
+    return () => subscription.unsubscribe();
   }, []);
 
   return {
